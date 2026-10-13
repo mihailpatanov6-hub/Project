@@ -81,13 +81,30 @@ namespace Проект
 
         private void FilterStudents()
         {
-            string query = txtSearch.Text.Trim().ToLower();
-            foreach (DataGridViewRow row in dgvStudents.Rows)
+            string query = txtSearch.Text.Trim();
+
+            if (string.IsNullOrEmpty(query))
             {
-                if (row.IsNewRow) continue;
-                string fio = row.Cells["colFio"].Value?.ToString().ToLower() ?? "";
-                row.Visible = string.IsNullOrEmpty(query) || fio.Contains(query);
+                LoadStudents();
+                return;
             }
+
+            dgvStudents.Rows.Clear();
+            var students = db.SearchStudents(query);
+
+            foreach (var s in students)
+            {
+                int rowIndex = dgvStudents.Rows.Add(
+                    s.FullName,
+                    s.Phone ?? "",
+                    s.Subject,
+                    s.ClassLevel ?? "",
+                    s.Notes ?? ""
+                );
+                dgvStudents.Rows[rowIndex].Tag = s.Id;
+            }
+
+            this.Text = $"Ученики — Найдено: {students.Count}";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -139,5 +156,9 @@ namespace Проект
             }
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -119,9 +119,21 @@ namespace Проект.Data
             var list = new List<Student>();
             using var connection = GetConnection();
             connection.Open();
+
             var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT Id, LastName, FirstName, MiddleName, Phone, Subject, ClassLevel, Notes FROM Students WHERE LastName LIKE $q OR FirstName LIKE $q OR MiddleName LIKE $q ORDER BY LastName";
+            cmd.CommandText = @"
+        SELECT Id, LastName, FirstName, MiddleName, Phone, Subject, ClassLevel, Notes 
+        FROM Students 
+        WHERE LastName LIKE $q 
+           OR FirstName LIKE $q 
+           OR MiddleName LIKE $q 
+           OR Phone LIKE $q 
+           OR Subject LIKE $q 
+           OR ClassLevel LIKE $q 
+           OR Notes LIKE $q
+        ORDER BY LastName, FirstName";
             cmd.Parameters.AddWithValue("$q", $"%{query}%");
+
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -139,7 +151,43 @@ namespace Проект.Data
             }
             return list;
         }
+        public List<Student> SearchStudents(string query)
+        {
+            var list = new List<Student>();
+            using var connection = GetConnection();
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = @"
+        SELECT Id, LastName, FirstName, MiddleName, Phone, Subject, ClassLevel, Notes 
+        FROM Students 
+        WHERE LastName LIKE $q 
+           OR FirstName LIKE $q 
+           OR MiddleName LIKE $q 
+           OR Phone LIKE $q 
+           OR Subject LIKE $q 
+           OR ClassLevel LIKE $q 
+           OR Notes LIKE $q
+        ORDER BY LastName, FirstName";
+            cmd.Parameters.AddWithValue("$q", $"%{query}%");
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Student
+                {
+                    Id = reader.GetInt32(0),
+                    LastName = reader.GetString(1),
+                    FirstName = reader.GetString(2),
+                    MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Phone = reader.IsDBNull(4) ? null : reader.GetString(4),
+                    Subject = reader.GetString(5),
+                    ClassLevel = reader.IsDBNull(6) ? null : reader.GetString(6),
+                    Notes = reader.IsDBNull(7) ? null : reader.GetString(7)
+                });
+            }
+            return list;
+        }
         public int AddStudent(string lastName, string firstName, string middleName,
                               string phone, string subject, string classLevel, string notes)
         {
@@ -395,4 +443,5 @@ namespace Проект.Data
         public string Status { get; set; }
         public string Notes { get; set; }
     }
+
 }

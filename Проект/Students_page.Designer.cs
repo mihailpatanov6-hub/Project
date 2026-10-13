@@ -131,9 +131,10 @@
             txtSearch.ForeColor = Color.FromArgb(94, 53, 177);
             txtSearch.Location = new Point(260, 20);
             txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Поиск по ФИО…";
+            txtSearch.PlaceholderText = "Поиск…";
             txtSearch.Size = new Size(300, 25);
             txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // btnAdd
             // 
