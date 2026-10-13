@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12224.181 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Проект", "Проект\Проект.csproj", "{61442606-9781-4BE3-96E3-7F03C3EF6E87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{2AADE55F-0343-44C1-B26E-B9AF517D24FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61442606-9781-4BE3-96E3-7F03C3EF6E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61442606-9781-4BE3-96E3-7F03C3EF6E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61442606-9781-4BE3-96E3-7F03C3EF6E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61442606-9781-4BE3-96E3-7F03C3EF6E87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE7C9DB5-F6B6-4B02-AEDE-0B265D6E7147}
+	EndGlobalSection
+EndGlobal
