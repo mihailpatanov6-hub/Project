@@ -200,6 +200,7 @@
             dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudents.Size = new Size(920, 340);
             dgvStudents.TabIndex = 0;
+            dgvStudents.ReadOnly = true;
             // 
             // colFio
             // 
