@@ -54,7 +54,8 @@ namespace Проект
 
         private void OpenSchedule()
         {
-            MessageBox.Show("Открыть окно «Расписание»", "Заглушка");
+            var f = new Schedule_page();
+            f.ShowDialog();
         }
 
         private void OpenSummary()

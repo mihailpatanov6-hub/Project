@@ -2,217 +2,287 @@
 {
     partial class StudentEditForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        private Panel pnlTop;
+        private Button btnBack;
+
+        private Label lblLastName;
+        private TextBox txtLastName;
+        private Label lblFirstName;
+        private TextBox txtFirstName;
+        private Label lblMiddleName;
+        private TextBox txtMiddleName;
+        private Label lblPhone;
+        private TextBox txtPhone;
+        private Label lblSubject;
+        private TextBox txtSubject;
+        private Label lblClassLevel;
+        private TextBox txtClassLevel;
+        private Label lblNotes;
+        private TextBox txtNotes;
+
+        private Panel pnlBottom;
+        private Button btnSave;
+        private Button btnCancel;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            lblSubtitle = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
+            pnlTop = new Panel();
+            btnBack = new Button();
+            lblLastName = new Label();
+            txtLastName = new TextBox();
+            lblFirstName = new Label();
+            txtFirstName = new TextBox();
+            lblMiddleName = new Label();
+            txtMiddleName = new TextBox();
+            lblPhone = new Label();
+            txtPhone = new TextBox();
+            lblSubject = new Label();
+            txtSubject = new TextBox();
+            lblClassLevel = new Label();
+            txtClassLevel = new TextBox();
+            lblNotes = new Label();
+            txtNotes = new TextBox();
+            pnlBottom = new Panel();
             btnSave = new Button();
             btnCancel = new Button();
-            btnBack = new Button();
-            txtLastName = new TextBox();
-            txtFirstName = new TextBox();
-            txtMiddleName = new TextBox();
-            txtPhone = new TextBox();
-            txtSubject = new TextBox();
-            txtClassLevel = new TextBox();
-            txtNotes = new TextBox();
+            pnlTop.SuspendLayout();
+            pnlBottom.SuspendLayout();
             SuspendLayout();
             // 
-            // lblSubtitle
+            // pnlTop
             // 
-            lblSubtitle.AutoSize = true;
-            lblSubtitle.ForeColor = Color.FromArgb(124, 77, 255);
-            lblSubtitle.Location = new Point(13, 11);
-            lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(144, 19);
-            lblSubtitle.TabIndex = 0;
-            lblSubtitle.Text = "— заполните данные";
+            pnlTop.BackColor = Color.White;
+            pnlTop.Controls.Add(btnBack);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(700, 120);
+            pnlTop.TabIndex = 0;
+            pnlTop.Paint += pnlTop_Paint;
             // 
-            // label1
+            // btnBack
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(23, 58);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 19);
-            label1.TabIndex = 1;
-            label1.Text = "Фамилия";
+            btnBack.BackColor = Color.Transparent;
+            btnBack.Cursor = Cursors.Hand;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnBack.ForeColor = Color.FromArgb(124, 77, 255);
+            btnBack.Location = new Point(40, 18);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(120, 32);
+            btnBack.TabIndex = 0;
+            btnBack.TabStop = false;
+            btnBack.Text = "←  Назад";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
-            // label2
+            // lblLastName
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(23, 103);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 19);
-            label2.TabIndex = 2;
-            label2.Text = "Имя";
+            lblLastName.AutoSize = true;
+            lblLastName.Font = new Font("Segoe UI", 10F);
+            lblLastName.ForeColor = Color.FromArgb(94, 53, 177);
+            lblLastName.Location = new Point(40, 150);
+            lblLastName.Name = "lblLastName";
+            lblLastName.Size = new Size(93, 23);
+            lblLastName.TabIndex = 3;
+            lblLastName.Text = "Фамилия *";
             // 
-            // label3
+            // txtLastName
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(23, 150);
-            label3.Name = "label3";
-            label3.Size = new Size(68, 19);
-            label3.TabIndex = 3;
-            label3.Text = "Отчество";
+            txtLastName.BorderStyle = BorderStyle.FixedSingle;
+            txtLastName.Font = new Font("Segoe UI", 10F);
+            txtLastName.ForeColor = Color.FromArgb(60, 40, 100);
+            txtLastName.Location = new Point(200, 147);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(300, 30);
+            txtLastName.TabIndex = 4;
             // 
-            // label4
+            // lblFirstName
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(23, 197);
-            label4.Name = "label4";
-            label4.Size = new Size(63, 19);
-            label4.TabIndex = 4;
-            label4.Text = "Телефон";
+            lblFirstName.AutoSize = true;
+            lblFirstName.Font = new Font("Segoe UI", 10F);
+            lblFirstName.ForeColor = Color.FromArgb(94, 53, 177);
+            lblFirstName.Location = new Point(40, 190);
+            lblFirstName.Name = "lblFirstName";
+            lblFirstName.Size = new Size(56, 23);
+            lblFirstName.TabIndex = 5;
+            lblFirstName.Text = "Имя *";
             // 
-            // label5
+            // txtFirstName
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(23, 252);
-            label5.Name = "label5";
-            label5.Size = new Size(65, 19);
-            label5.TabIndex = 5;
-            label5.Text = "Предмет";
+            txtFirstName.BorderStyle = BorderStyle.FixedSingle;
+            txtFirstName.Font = new Font("Segoe UI", 10F);
+            txtFirstName.ForeColor = Color.FromArgb(60, 40, 100);
+            txtFirstName.Location = new Point(200, 187);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(300, 30);
+            txtFirstName.TabIndex = 6;
             // 
-            // label6
+            // lblMiddleName
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(23, 307);
-            label6.Name = "label6";
-            label6.Size = new Size(108, 19);
-            label6.TabIndex = 6;
-            label6.Text = "Класс / уровень";
+            lblMiddleName.AutoSize = true;
+            lblMiddleName.Font = new Font("Segoe UI", 10F);
+            lblMiddleName.ForeColor = Color.FromArgb(94, 53, 177);
+            lblMiddleName.Location = new Point(40, 230);
+            lblMiddleName.Name = "lblMiddleName";
+            lblMiddleName.Size = new Size(83, 23);
+            lblMiddleName.TabIndex = 7;
+            lblMiddleName.Text = "Отчество";
             // 
-            // label7
+            // txtMiddleName
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(444, 48);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 19);
-            label7.TabIndex = 7;
-            label7.Text = "Заметки";
+            txtMiddleName.BorderStyle = BorderStyle.FixedSingle;
+            txtMiddleName.Font = new Font("Segoe UI", 10F);
+            txtMiddleName.ForeColor = Color.FromArgb(60, 40, 100);
+            txtMiddleName.Location = new Point(200, 227);
+            txtMiddleName.Name = "txtMiddleName";
+            txtMiddleName.Size = new Size(300, 30);
+            txtMiddleName.TabIndex = 8;
+            // 
+            // lblPhone
+            // 
+            lblPhone.AutoSize = true;
+            lblPhone.Font = new Font("Segoe UI", 10F);
+            lblPhone.ForeColor = Color.FromArgb(94, 53, 177);
+            lblPhone.Location = new Point(40, 270);
+            lblPhone.Name = "lblPhone";
+            lblPhone.Size = new Size(78, 23);
+            lblPhone.TabIndex = 9;
+            lblPhone.Text = "Телефон";
+            // 
+            // txtPhone
+            // 
+            txtPhone.BorderStyle = BorderStyle.FixedSingle;
+            txtPhone.Font = new Font("Segoe UI", 10F);
+            txtPhone.ForeColor = Color.FromArgb(60, 40, 100);
+            txtPhone.Location = new Point(200, 267);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(300, 30);
+            txtPhone.TabIndex = 10;
+            // 
+            // lblSubject
+            // 
+            lblSubject.AutoSize = true;
+            lblSubject.Font = new Font("Segoe UI", 10F);
+            lblSubject.ForeColor = Color.FromArgb(94, 53, 177);
+            lblSubject.Location = new Point(40, 310);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(90, 23);
+            lblSubject.TabIndex = 11;
+            lblSubject.Text = "Предмет *";
+            // 
+            // txtSubject
+            // 
+            txtSubject.BorderStyle = BorderStyle.FixedSingle;
+            txtSubject.Font = new Font("Segoe UI", 10F);
+            txtSubject.ForeColor = Color.FromArgb(60, 40, 100);
+            txtSubject.Location = new Point(200, 307);
+            txtSubject.Name = "txtSubject";
+            txtSubject.Size = new Size(300, 30);
+            txtSubject.TabIndex = 12;
+            // 
+            // lblClassLevel
+            // 
+            lblClassLevel.AutoSize = true;
+            lblClassLevel.Font = new Font("Segoe UI", 10F);
+            lblClassLevel.ForeColor = Color.FromArgb(94, 53, 177);
+            lblClassLevel.Location = new Point(40, 350);
+            lblClassLevel.Name = "lblClassLevel";
+            lblClassLevel.Size = new Size(136, 23);
+            lblClassLevel.TabIndex = 13;
+            lblClassLevel.Text = "Класс / уровень";
+            // 
+            // txtClassLevel
+            // 
+            txtClassLevel.BorderStyle = BorderStyle.FixedSingle;
+            txtClassLevel.Font = new Font("Segoe UI", 10F);
+            txtClassLevel.ForeColor = Color.FromArgb(60, 40, 100);
+            txtClassLevel.Location = new Point(200, 347);
+            txtClassLevel.Name = "txtClassLevel";
+            txtClassLevel.Size = new Size(300, 30);
+            txtClassLevel.TabIndex = 14;
+            // 
+            // lblNotes
+            // 
+            lblNotes.AutoSize = true;
+            lblNotes.Font = new Font("Segoe UI", 10F);
+            lblNotes.ForeColor = Color.FromArgb(94, 53, 177);
+            lblNotes.Location = new Point(40, 390);
+            lblNotes.Name = "lblNotes";
+            lblNotes.Size = new Size(74, 23);
+            lblNotes.TabIndex = 15;
+            lblNotes.Text = "Заметки";
+            // 
+            // txtNotes
+            // 
+            txtNotes.BorderStyle = BorderStyle.FixedSingle;
+            txtNotes.Font = new Font("Segoe UI", 10F);
+            txtNotes.ForeColor = Color.FromArgb(60, 40, 100);
+            txtNotes.Location = new Point(200, 387);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.Size = new Size(300, 80);
+            txtNotes.TabIndex = 16;
+            // 
+            // pnlBottom
+            // 
+            pnlBottom.BackColor = Color.White;
+            pnlBottom.Controls.Add(btnSave);
+            pnlBottom.Controls.Add(btnCancel);
+            pnlBottom.Dock = DockStyle.Bottom;
+            pnlBottom.Location = new Point(0, 490);
+            pnlBottom.Name = "pnlBottom";
+            pnlBottom.Size = new Size(700, 70);
+            pnlBottom.TabIndex = 17;
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.FromArgb(124, 77, 255);
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.ForeColor = Color.FromArgb(124, 77, 255);
-            btnSave.Location = new Point(343, 414);
+            btnSave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(40, 15);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(103, 43);
-            btnSave.TabIndex = 8;
+            btnSave.Size = new Size(200, 40);
+            btnSave.TabIndex = 18;
             btnSave.Text = "Сохранить";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
+            btnCancel.BackColor = Color.White;
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.FlatAppearance.BorderColor = Color.FromArgb(214, 198, 245);
             btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.ForeColor = Color.FromArgb(124, 77, 255);
-            btnCancel.Location = new Point(517, 414);
+            btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.FromArgb(94, 53, 177);
+            btnCancel.Location = new Point(260, 15);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(103, 43);
-            btnCancel.TabIndex = 9;
+            btnCancel.Size = new Size(180, 40);
+            btnCancel.TabIndex = 19;
             btnCancel.Text = "Отмена";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
-            // 
-            // btnBack
-            // 
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.ForeColor = Color.FromArgb(124, 77, 255);
-            btnBack.Location = new Point(173, 414);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(103, 43);
-            btnBack.TabIndex = 10;
-            btnBack.Text = "← Назад";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += btnBack_Click;
-            // 
-            // txtLastName
-            // 
-            txtLastName.Location = new Point(135, 58);
-            txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(179, 25);
-            txtLastName.TabIndex = 11;
-            // 
-            // txtFirstName
-            // 
-            txtFirstName.Location = new Point(135, 102);
-            txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(179, 25);
-            txtFirstName.TabIndex = 12;
-            // 
-            // txtMiddleName
-            // 
-            txtMiddleName.Location = new Point(135, 152);
-            txtMiddleName.Name = "txtMiddleName";
-            txtMiddleName.Size = new Size(179, 25);
-            txtMiddleName.TabIndex = 13;
-            // 
-            // txtPhone
-            // 
-            txtPhone.Location = new Point(135, 200);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(179, 25);
-            txtPhone.TabIndex = 14;
-            // 
-            // txtSubject
-            // 
-            txtSubject.Location = new Point(135, 251);
-            txtSubject.Name = "txtSubject";
-            txtSubject.Size = new Size(179, 25);
-            txtSubject.TabIndex = 15;
-            // 
-            // txtClassLevel
-            // 
-            txtClassLevel.Location = new Point(135, 307);
-            txtClassLevel.Name = "txtClassLevel";
-            txtClassLevel.Size = new Size(179, 25);
-            txtClassLevel.TabIndex = 16;
-            // 
-            // txtNotes
-            // 
-            txtNotes.Location = new Point(517, 45);
-            txtNotes.MinimumSize = new Size(4, 90);
-            txtNotes.Multiline = true;
-            txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(258, 120);
-            txtNotes.TabIndex = 17;
             // 
             // StudentEditForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 487);
+            BackColor = Color.White;
+            ClientSize = new Size(700, 560);
             Controls.Add(txtNotes);
             Controls.Add(txtClassLevel);
             Controls.Add(txtSubject);
@@ -220,45 +290,39 @@
             Controls.Add(txtMiddleName);
             Controls.Add(txtFirstName);
             Controls.Add(txtLastName);
-            Controls.Add(btnBack);
-            Controls.Add(btnCancel);
-            Controls.Add(btnSave);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(lblSubtitle);
+            Controls.Add(lblNotes);
+            Controls.Add(lblClassLevel);
+            Controls.Add(lblSubject);
+            Controls.Add(lblPhone);
+            Controls.Add(lblMiddleName);
+            Controls.Add(lblFirstName);
+            Controls.Add(lblLastName);
+            Controls.Add(pnlBottom);
+            Controls.Add(pnlTop);
             Font = new Font("Segoe UI", 10F);
             ForeColor = Color.FromArgb(94, 53, 177);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "StudentEditForm";
-            Text = "Добавить ученика";
-            Load += StudentEditForm_Load;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Ученик";
+            pnlTop.ResumeLayout(false);
+            pnlBottom.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
-
-        private Label lblSubtitle;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Button btnSave;
-        private Button btnCancel;
-        private Button btnBack;
-        private TextBox txtLastName;
-        private TextBox txtFirstName;
-        private TextBox txtMiddleName;
-        private TextBox txtPhone;
-        private TextBox txtSubject;
-        private TextBox txtClassLevel;
-        private TextBox txtNotes;
+        private void pnlTop_Paint(object sender, PaintEventArgs e)
+        {
+            using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+                pnlTop.ClientRectangle,
+                System.Drawing.Color.White,
+                System.Drawing.Color.FromArgb(237, 228, 255),
+                System.Drawing.Drawing2D.LinearGradientMode.Horizontal))
+            {
+                e.Graphics.FillRectangle(brush, pnlTop.ClientRectangle);
+            }
+        }
     }
 }

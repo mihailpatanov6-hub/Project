@@ -8,36 +8,17 @@ namespace Проект
     public partial class Students_page : Form
     {
         private DatabaseHelper db;
-        private Student student;
-        private void LoadStudents()
-        {
-            dgvStudents.Rows.Clear();
-            var students = db.GetAllStudents();
 
-            foreach (var s in students)
-            {
-                int rowIndex = dgvStudents.Rows.Add(
-                    s.FullName,
-                    s.Phone ?? "",
-                    s.Subject,
-                    s.ClassLevel ?? "",
-                    s.Notes ?? ""
-                );
-                dgvStudents.Rows[rowIndex].Tag = s.Id;
-            }
-
-            this.Text = $"Ученики — Всего: {students.Count}";
-        }
         public Students_page()
         {
             InitializeComponent();
-            db = new DatabaseHelper();  // ← ЭТА СТРОКА ОБЯЗАТЕЛЬНА
+            db = new DatabaseHelper();
             LoadStudents();
 
-            // Кнопки
+            // Кнопки, которых нет в дизайнере
             btnBack.Click += (s, e) => this.Close();
-            btnEdit.Click += (s, e) => EditStudent();
 
+            dgvStudents.CellDoubleClick += dgvStudents_CellDoubleClick;
             // Поиск
             txtSearch.TextChanged += (s, e) => FilterStudents();
 
@@ -57,27 +38,27 @@ namespace Проект
         private void HoverButton(Button b, bool hover)
         {
             if (b == btnAdd)
-                b.BackColor = hover
-                    ? Color.FromArgb(94, 53, 177)
-                    : Color.FromArgb(124, 77, 255);
+                b.BackColor = hover ? Color.FromArgb(94, 53, 177) : Color.FromArgb(124, 77, 255);
             else
-                b.BackColor = hover
-                    ? Color.FromArgb(237, 228, 255)
-                    : Color.White;
+                b.BackColor = hover ? Color.FromArgb(237, 228, 255) : Color.White;
         }
 
-
-        private void EditStudent()
+        private void LoadStudents()
         {
-            if (dgvStudents.CurrentRow == null)
-            {
-                MessageBox.Show("Выберите ученика в таблице.",
-                    "Ничего не выбрано", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                return;
-            }
-        }
+            dgvStudents.Rows.Clear();
+            var students = db.GetAllStudents();
 
+            foreach (var s in students)
+            {
+                int rowIndex = dgvStudents.Rows.Add(
+                    s.FullName, s.Phone ?? "", s.Subject,
+                    s.ClassLevel ?? "", s.Notes ?? ""
+                );
+                dgvStudents.Rows[rowIndex].Tag = s.Id;
+            }
+
+            this.Text = $"Ученики — Всего: {students.Count}";
+        }
 
         private void FilterStudents()
         {
@@ -95,11 +76,8 @@ namespace Проект
             foreach (var s in students)
             {
                 int rowIndex = dgvStudents.Rows.Add(
-                    s.FullName,
-                    s.Phone ?? "",
-                    s.Subject,
-                    s.ClassLevel ?? "",
-                    s.Notes ?? ""
+                    s.FullName, s.Phone ?? "", s.Subject,
+                    s.ClassLevel ?? "", s.Notes ?? ""
                 );
                 dgvStudents.Rows[rowIndex].Tag = s.Id;
             }
@@ -113,10 +91,29 @@ namespace Проект
             if (form.ShowDialog() == DialogResult.OK)
                 LoadStudents();
         }
+        private void dgvStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Игнорируем клики по заголовкам
+            if (e.RowIndex < 0) return;
+
+            // Получаем ID ученика
+            var row = dgvStudents.Rows[e.RowIndex];
+            if (row.Tag == null) return;
+
+            int id = Convert.ToInt32(row.Tag);
+            var student = db.GetStudentById(id);
+
+            if (student != null)
+            {
+                // Открываем карточку
+                using var form = new StudentCardForm(student);
+                form.ShowDialog();
+            }
+        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvStudents.CurrentRow == null)
+            if (dgvStudents.CurrentRow == null || dgvStudents.CurrentRow.Tag == null)
             {
                 MessageBox.Show("Выберите ученика");
                 return;
@@ -133,7 +130,7 @@ namespace Проект
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvStudents.CurrentRow == null || dgvStudents.CurrentRow.IsNewRow)
+            if (dgvStudents.CurrentRow == null || dgvStudents.CurrentRow.Tag == null)
             {
                 MessageBox.Show("Выберите ученика в таблице", "Внимание",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -158,7 +155,7 @@ namespace Проект
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
+            // Пустой, так как подписка в конструкторе
         }
     }
 }
