@@ -32,7 +32,7 @@ namespace Проект
             txtFirstName.AutoCompleteCustomSource.AddRange(firstNames.ToArray());
 
             // Предмет
-            var subjects = db.GetExistingSubjects();
+            var subjects = db.GetUniqueSubjects(); // ← теперь вернёт разбитые по запятой предметы
             txtSubject.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtSubject.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtSubject.AutoCompleteCustomSource = new AutoCompleteStringCollection();
@@ -52,6 +52,7 @@ namespace Проект
             FillFields();
             SetupAutoComplete();
         }
+
         private void FillFields()
         {
             if (student != null)
@@ -93,7 +94,7 @@ namespace Проект
 
             if (string.IsNullOrWhiteSpace(txtSubject.Text))
             {
-                MessageBox.Show("Введите предмет", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Введите хотя бы один предмет", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSubject.Focus();
                 return;
             }

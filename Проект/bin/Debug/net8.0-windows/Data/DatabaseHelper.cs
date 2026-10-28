@@ -306,7 +306,37 @@ namespace Проект.Data
             }
             return list;
         }
+        public List<string> GetUniqueSubjects()
+        {
+            var subjects = new HashSet<string>(); // HashSet автоматически убирает дубликаты
 
+            using var connection = GetConnection();
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT Subject FROM Students WHERE Subject IS NOT NULL AND Subject != ''";
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string subjectField = reader.GetString(0);
+
+                // Разбиваем по запятой
+                string[] parts = subjectField.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string part in parts)
+                {
+                    string trimmed = part.Trim();
+                    if (!string.IsNullOrEmpty(trimmed))
+                    {
+                        subjects.Add(trimmed);
+                    }
+                }
+            }
+
+            // Возвращаем отсортированный список
+            return subjects.OrderBy(s => s).ToList();
+        }
         public List<Lesson> GetLessonsByPeriod(DateTime from, DateTime to)
         {
             var list = new List<Lesson>();
@@ -373,22 +403,6 @@ namespace Проект.Data
                 });
             }
             return list;
-        }
-        public List<string> GetUniqueSubjects()
-        {
-            var subjects = new List<string>();
-            using var connection = GetConnection();
-            connection.Open();
-
-            var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT DISTINCT Subject FROM Students ORDER BY Subject";
-
-            using var reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                subjects.Add(reader.GetString(0));
-            }
-            return subjects;
         }
         public List<Student> GetUniqueStudents()
         {
