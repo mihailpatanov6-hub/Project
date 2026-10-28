@@ -238,7 +238,47 @@ namespace Проект.Data
             cmd.Parameters.AddWithValue("$id", id);
             cmd.ExecuteNonQuery();
         }
+        // Получить все существующие фамилии
+        public List<string> GetExistingLastNames()
+        {
+            var list = new List<string>();
+            using var connection = GetConnection();
+            connection.Open();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT DISTINCT LastName FROM Students ORDER BY LastName";
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+                list.Add(reader.GetString(0));
+            return list;
+        }
 
+        // Получить все существующие имена
+        public List<string> GetExistingFirstNames()
+        {
+            var list = new List<string>();
+            using var connection = GetConnection();
+            connection.Open();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT DISTINCT FirstName FROM Students ORDER BY FirstName";
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+                list.Add(reader.GetString(0));
+            return list;
+        }
+
+        // Получить все существующие предметы
+        public List<string> GetExistingSubjects()
+        {
+            var list = new List<string>();
+            using var connection = GetConnection();
+            connection.Open();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT DISTINCT Subject FROM Students ORDER BY Subject";
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+                list.Add(reader.GetString(0));
+            return list;
+        }
         // ========== ЗАНЯТИЯ ==========
 
         public List<Lesson> GetLessonsByStudent(int studentId)
@@ -350,6 +390,41 @@ namespace Проект.Data
             }
             return subjects;
         }
+        public List<Student> GetUniqueStudents()
+        {
+            var list = new List<Student>();
+            using var connection = GetConnection();
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = @"
+        SELECT Id, LastName, FirstName, MiddleName, Phone, Subject, ClassLevel, Notes 
+        FROM Students 
+        WHERE Id IN (
+            SELECT MIN(Id) 
+            FROM Students 
+            GROUP BY LastName, FirstName, MiddleName
+        )
+        ORDER BY LastName, FirstName";
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Student
+                {
+                    Id = reader.GetInt32(0),
+                    LastName = reader.GetString(1),
+                    FirstName = reader.GetString(2),
+                    MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Phone = reader.IsDBNull(4) ? null : reader.GetString(4),
+                    Subject = reader.GetString(5),
+                    ClassLevel = reader.IsDBNull(6) ? null : reader.GetString(6),
+                    Notes = reader.IsDBNull(7) ? null : reader.GetString(7)
+                });
+            }
+            return list;
+        }
+
         public Lesson GetLessonById(int id)
         {
             using var connection = GetConnection();

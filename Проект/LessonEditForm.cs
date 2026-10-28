@@ -48,19 +48,15 @@ namespace Проект
         private void LoadStudents()
         {
             cmbStudent.Items.Clear();
-            var students = db.GetAllStudents();
+            var students = db.GetUniqueStudents(); // ← используем новый метод
+
             foreach (var s in students)
             {
                 cmbStudent.Items.Add(new StudentItem { Id = s.Id, Name = s.FullName });
             }
             cmbStudent.DisplayMember = "Name";
             cmbStudent.ValueMember = "Id";
-            if (students.Count == 0)
-            {
-                cmbStudent.Text = "Сначала добавьте ученика!";
-            }
         }
-
         private void LoadSubjects()
         {
             cmbSubject.Items.Clear();

@@ -15,10 +15,34 @@ namespace Проект
     {
         private DatabaseHelper db;
         private Student student;
+        private void SetupAutoComplete()
+        {
+            // Фамилия
+            var lastNames = db.GetExistingLastNames();
+            txtLastName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtLastName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtLastName.AutoCompleteCustomSource = new AutoCompleteStringCollection();
+            txtLastName.AutoCompleteCustomSource.AddRange(lastNames.ToArray());
+
+            // Имя
+            var firstNames = db.GetExistingFirstNames();
+            txtFirstName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtFirstName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtFirstName.AutoCompleteCustomSource = new AutoCompleteStringCollection();
+            txtFirstName.AutoCompleteCustomSource.AddRange(firstNames.ToArray());
+
+            // Предмет
+            var subjects = db.GetExistingSubjects();
+            txtSubject.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtSubject.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtSubject.AutoCompleteCustomSource = new AutoCompleteStringCollection();
+            txtSubject.AutoCompleteCustomSource.AddRange(subjects.ToArray());
+        }
         public StudentEditForm()
         {
             InitializeComponent();
             db = new DatabaseHelper();
+            SetupAutoComplete();
         }
         public StudentEditForm(Student existingStudent)
         {
@@ -26,6 +50,7 @@ namespace Проект
             db = new DatabaseHelper();
             student = existingStudent;
             FillFields();
+            SetupAutoComplete();
         }
         private void FillFields()
         {

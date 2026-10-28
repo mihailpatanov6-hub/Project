@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\data\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\data\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\schedule_page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\schedule_page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u043F\u0440\u043E\u0435\u043A\u0442\\lessoneditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -35,14 +51,6 @@
       "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\main_page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|c:\\users\\ardor gaming neo\\source\\repos\\project\\\u043F\u0440\u043E\u0435\u043A\u0442\\data\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\data\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\studenteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u043F\u0440\u043E\u0435\u043A\u0442\\students_page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{61442606-9781-4BE3-96E3-7F03C3EF6E87}|\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj|solutionrelative:\u043F\u0440\u043E\u0435\u043A\u0442\\students_page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -62,11 +70,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
+              "Title": "StudentEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs",
+              "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs",
+              "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs*",
+              "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs*",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwDQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-28T09:58:37.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentEditForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.Designer.cs",
+              "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.Designer.cs",
+              "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.Designer.cs",
+              "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.Designer.cs",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAswD0BAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-28T09:58:18.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Schedule_page.cs",
+              "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
+              "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
+              "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
+              "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwGoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T16:27:57.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Schedule_page.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
@@ -74,22 +121,7 @@
               "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-26T16:22:25.383Z",
-              "IsPinned": true,
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Schedule_page.cs",
-              "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
-              "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
-              "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
-              "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\Schedule_page.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAA9wFIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-26T16:27:57.67Z",
-              "IsPinned": true,
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -109,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "LessonEditForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.Designer.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.Designer.cs",
@@ -121,20 +153,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "LessonEditForm.cs",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.cs",
               "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.cs",
               "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.cs",
-              "ViewState": "AgIAAGABAAAAAAAAAAAYwH0BAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-26T19:07:09.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "LessonEditForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\LessonEditForm.cs",
@@ -145,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "StudentCardForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentCardForm.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentCardForm.cs",
@@ -156,19 +188,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Data\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Data\\DatabaseHelper.cs",
               "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Data\\DatabaseHelper.cs",
               "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\Data\\DatabaseHelper.cs",
-              "ViewState": "AgIAAE8BAAAAAAAAAAAAwF8BAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAowBgBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T16:02:46.434Z"
+              "WhenOpened": "2026-10-13T16:02:46.434Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Students_page.cs",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Students_page.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Students_page.cs",
@@ -181,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Students_page.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Students_page.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Students_page.cs",
@@ -192,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "Main_page.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Main_page.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Main_page.cs",
@@ -203,18 +236,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "StudentEditForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs",
-              "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "RelativeToolTip": "\u041F\u0440\u043E\u0435\u043A\u0442\\StudentEditForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T11:16:58.325Z"
+              "WhenOpened": "2026-10-13T11:16:58.325Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\Program.cs",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\Program.cs",
@@ -226,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "\u041F\u0440\u043E\u0435\u043A\u0442.csproj",
               "DocumentMoniker": "C:\\Users\\ARDOR GAMING Neo\\source\\repos\\Project\\\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj",
               "RelativeDocumentMoniker": "\u041F\u0440\u043E\u0435\u043A\u0442\\\u041F\u0440\u043E\u0435\u043A\u0442.csproj",
