@@ -14,16 +14,21 @@ namespace Проект
             InitializeComponent();
             db = new DatabaseHelper();
             selectedDate = DateTime.Today;
-            monthCalendar.DateSelected += Calendar_DateSelected;
-            btnBack.Click += (s, e) => this.Close();
 
+            // Оставляем только одну подписку
+            monthCalendar.DateSelected += Calendar_DateSelected;
+
+            btnBack.Click += (s, e) => this.Close();
+            dgvLessons.CellDoubleClick += dgvLessons_CellDoubleClick;
+
+            UpdateDateLabel(selectedDate); // Обновляем заголовок при старте
             LoadLessons();
-            // Чтобы календарь при открытии показывал список занятий на сегодня
-            monthCalendar.DateSelected += (s, e) => UpdateDateLabel(e.Start);
         }
+
         private void Calendar_DateSelected(object sender, DateRangeEventArgs e)
         {
             selectedDate = e.Start.Date;
+            UpdateDateLabel(selectedDate); // <-- ОБНОВЛЯЕМ ЗАГОЛОВОК
             LoadLessons();
         }
         private void LoadLessons()
@@ -107,10 +112,29 @@ namespace Проект
                 LoadLessons();
             }
         }
-
-        private void dgvLessons_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvLessons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Игнорируем клики по заголовкам
+            if (e.RowIndex < 0) return;
 
+            var row = dgvLessons.Rows[e.RowIndex];
+            if (row.Tag == null) return;
+
+            // Получаем ID занятия
+            int lessonId = Convert.ToInt32(row.Tag);
+
+            // Загружаем полную информацию из БД
+            var lesson = db.GetLessonById(lessonId);
+
+            // Имя ученика уже есть в таблице (в колонке colStudent)
+            string studentName = row.Cells["colStudent"].Value?.ToString() ?? "";
+
+            if (lesson != null)
+            {
+                // Открываем карточку занятия
+                using var form = new LessonCardForm(lesson, studentName);
+                form.ShowDialog();
+            }
         }
     }
 }

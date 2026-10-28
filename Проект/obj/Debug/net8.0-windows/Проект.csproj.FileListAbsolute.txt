@@ -120,3 +120,4 @@ C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\re
 C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\Проект.pdb
 C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\Проект.genruntimeconfig.cache
 C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\ref\Проект.dll
+C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\Проект.LessonCardForm.resources
