@@ -185,7 +185,6 @@
             dgvLessons.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLessons.Size = new Size(709, 533);
             dgvLessons.TabIndex = 1;
-            dgvLessons.CellContentClick += dgvLessons_CellContentClick;
             // 
             // colTime
             // 

@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Проект.Data;
 
@@ -11,6 +13,7 @@ namespace Проект
     {
         private DatabaseHelper db;
         private Lesson lesson;
+        private bool isEditing = false; // Флаг, чтобы не сбрасывать предмет при загрузке
 
         // Конструктор для ДОБАВЛЕНИЯ нового занятия
         public LessonEditForm(DateTime date)
@@ -19,7 +22,6 @@ namespace Проект
             db = new DatabaseHelper();
 
             LoadStudents();
-            LoadSubjects();
 
             if (cmbStatus.Items.Count > 0)
             {
@@ -38,32 +40,89 @@ namespace Проект
         public LessonEditForm(Lesson existingLesson) : this(DateTime.Today)
         {
             lesson = existingLesson;
+            isEditing = true;
             Text = "Редактировать занятие";
             lblTitle.Text = "Редактировать занятие";
             btnSave.Text = "Сохранить изменения";
 
             FillFields();
+            isEditing = false;
         }
 
+        // ... (Метод LoadStudents оставляем без изменений, как в прошлом ответе) ...
         private void LoadStudents()
         {
             cmbStudent.Items.Clear();
-            var students = db.GetUniqueStudents(); // ← используем новый метод
+            var students = db.GetAllStudents();
+
+            var nameCounts = new Dictionary<string, int>();
+            var phoneCounts = new Dictionary<string, int>();
 
             foreach (var s in students)
             {
-                cmbStudent.Items.Add(new StudentItem { Id = s.Id, Name = s.FullName });
+                string name = s.FullName;
+                string phone = s.Phone ?? "";
+                if (!nameCounts.ContainsKey(name)) nameCounts[name] = 0;
+                nameCounts[name]++;
+                if (!string.IsNullOrEmpty(phone))
+                {
+                    if (!phoneCounts.ContainsKey(phone)) phoneCounts[phone] = 0;
+                    phoneCounts[phone]++;
+                }
             }
+
+            foreach (var s in students)
+            {
+                string displayName = s.FullName;
+                if (nameCounts[s.FullName] > 1)
+                {
+                    if (!string.IsNullOrWhiteSpace(s.Phone))
+                    {
+                        displayName += $" — {s.Phone}";
+                        if (phoneCounts[s.Phone] > 1) displayName += $" (ID: {s.Id})";
+                    }
+                    else
+                    {
+                        displayName += $" (ID: {s.Id})";
+                    }
+                }
+                cmbStudent.Items.Add(new StudentItem { Id = s.Id, Name = displayName });
+            }
+
             cmbStudent.DisplayMember = "Name";
             cmbStudent.ValueMember = "Id";
         }
-        private void LoadSubjects()
+
+        // НОВЫЙ МЕТОД: Срабатывает при выборе ученика
+        private void cmbStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Если мы в процессе загрузки данных для редактирования, не трогаем предметы
+            if (isEditing) return;
+
             cmbSubject.Items.Clear();
-            var subjects = db.GetUniqueSubjects();
-            foreach (var subject in subjects)
+            cmbSubject.Text = "";
+
+            if (cmbStudent.SelectedItem is StudentItem selectedStudent)
             {
-                cmbSubject.Items.Add(subject);
+                // Ищем ученика в базе по ID, чтобы получить его предметы
+                var student = db.GetStudentById(selectedStudent.Id);
+
+                if (student != null && !string.IsNullOrWhiteSpace(student.Subject))
+                {
+                    // Разбиваем строку "Математика, Физика" на отдельные предметы
+                    string[] subjects = student.Subject.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (string subj in subjects)
+                    {
+                        cmbSubject.Items.Add(subj.Trim());
+                    }
+
+                    // Автоматически выбираем первый предмет
+                    if (cmbSubject.Items.Count > 0)
+                    {
+                        cmbSubject.SelectedIndex = 0;
+                    }
+                }
             }
         }
 
@@ -84,14 +143,27 @@ namespace Проект
                     }
                 }
 
-                // 3. Предмет
-                if (cmbSubject.Items.Contains(lesson.Subject))
+                // 3. ПРЕДМЕТ
+                // Сначала принудительно загружаем ВСЕ предметы этого ученика в список
+                cmbSubject.Items.Clear();
+                var student = db.GetStudentById(lesson.StudentId);
+                if (student != null && !string.IsNullOrWhiteSpace(student.Subject))
                 {
-                    cmbSubject.SelectedItem = lesson.Subject;
+                    string[] subjects = student.Subject.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string subj in subjects)
+                    {
+                        cmbSubject.Items.Add(subj.Trim());
+                    }
                 }
-                else
+
+                // Теперь выбираем тот предмет, который был сохранен в занятии.
+                // Если его нет в списке (например, ученика перевели на другой предмет), добавляем его принудительно.
+                if (!string.IsNullOrEmpty(lesson.Subject))
                 {
-                    cmbSubject.Items.Add(lesson.Subject);
+                    if (!cmbSubject.Items.Contains(lesson.Subject))
+                    {
+                        cmbSubject.Items.Add(lesson.Subject);
+                    }
                     cmbSubject.SelectedItem = lesson.Subject;
                 }
 
@@ -121,6 +193,7 @@ namespace Проект
             }
         }
 
+        // ... (Метод btnSave_Click оставляем без изменений) ...
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (cmbStudent.SelectedItem == null)
@@ -129,9 +202,9 @@ namespace Проект
                 cmbStudent.Focus();
                 return;
             }
-            if (cmbSubject.SelectedItem == null)
+            if (cmbSubject.SelectedItem == null && string.IsNullOrWhiteSpace(cmbSubject.Text))
             {
-                MessageBox.Show("Выберите предмет", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Выберите или введите предмет", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbSubject.Focus();
                 return;
             }
@@ -139,7 +212,7 @@ namespace Проект
             try
             {
                 int studentId = ((StudentItem)cmbStudent.SelectedItem).Id;
-                string subject = cmbSubject.SelectedItem.ToString();
+                string subject = cmbSubject.Text.Trim(); // Берем то, что выбрано или введено
                 string date = dtpDate.Value.ToString("yyyy-MM-dd");
                 string startTime = dtpStartTime.Value.ToString("HH:mm");
                 string endTime = dtpEndTime.Value.ToString("HH:mm");

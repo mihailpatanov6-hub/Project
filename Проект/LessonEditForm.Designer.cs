@@ -137,6 +137,7 @@
             cmbStudent.Location = new Point(200, 192);
             cmbStudent.Size = new Size(450, 31);
             cmbStudent.TabIndex = 4;
+            cmbStudent.SelectedIndexChanged += cmbStudent_SelectedIndexChanged;
 
             // lblSubject
             lblSubject.AutoSize = true;
