@@ -300,7 +300,56 @@ namespace Проект.Data
             }
             return list;
         }
+        public List<Lesson> GetLessonsByDate(string date)
+        {
+            var list = new List<Lesson>();
+            using var connection = GetConnection();
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = @"
+        SELECT l.Id, l.StudentId, s.LastName, s.FirstName, l.Subject, 
+               l.LessonDate, l.StartTime, l.EndTime, l.Status, l.Notes
+        FROM Lessons l
+        JOIN Students s ON l.StudentId = s.Id
+        WHERE l.LessonDate = $date
+        ORDER BY l.StartTime";
+            cmd.Parameters.AddWithValue("$date", date);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Lesson
+                {
+                    Id = reader.GetInt32(0),
+                    StudentId = reader.GetInt32(1),
+                    StudentName = $"{reader.GetString(2)} {reader.GetString(3)}",
+                    Subject = reader.GetString(4),
+                    LessonDate = reader.GetString(5),
+                    StartTime = reader.GetString(6),
+                    EndTime = reader.IsDBNull(7) ? null : reader.GetString(7),
+                    Status = reader.GetString(8),
+                    Notes = reader.IsDBNull(9) ? null : reader.GetString(9)
+                });
+            }
+            return list;
+        }
+        public List<string> GetUniqueSubjects()
+        {
+            var subjects = new List<string>();
+            using var connection = GetConnection();
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT DISTINCT Subject FROM Students ORDER BY Subject";
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                subjects.Add(reader.GetString(0));
+            }
+            return subjects;
+        }
         public Lesson GetLessonById(int id)
         {
             using var connection = GetConnection();
@@ -443,5 +492,6 @@ namespace Проект.Data
         public string Status { get; set; }
         public string Notes { get; set; }
     }
+
 
 }
