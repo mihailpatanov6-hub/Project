@@ -68,8 +68,9 @@
             pnlTop.Controls.Add(lblTitle);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(3, 4, 3, 4);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1000, 120);
+            pnlTop.Size = new Size(1143, 160);
             pnlTop.TabIndex = 0;
             pnlTop.Paint += pnlTop_Paint;
             // 
@@ -81,9 +82,10 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnBack.ForeColor = Color.FromArgb(124, 77, 255);
-            btnBack.Location = new Point(40, 18);
+            btnBack.Location = new Point(46, 24);
+            btnBack.Margin = new Padding(3, 4, 3, 4);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(120, 32);
+            btnBack.Size = new Size(137, 43);
             btnBack.TabIndex = 0;
             btnBack.TabStop = false;
             btnBack.Text = "←  Назад";
@@ -95,9 +97,9 @@
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 10F);
             lblSubtitle.ForeColor = Color.FromArgb(124, 77, 255);
-            lblSubtitle.Location = new Point(221, 65);
+            lblSubtitle.Location = new Point(253, 87);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(190, 19);
+            lblSubtitle.Size = new Size(237, 23);
             lblSubtitle.TabIndex = 2;
             lblSubtitle.Text = "— календарь ваших занятий";
             // 
@@ -106,9 +108,9 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(94, 53, 177);
-            lblTitle.Location = new Point(40, 52);
+            lblTitle.Location = new Point(46, 69);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(172, 37);
+            lblTitle.Size = new Size(210, 46);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Расписание";
             // 
@@ -117,17 +119,19 @@
             pnlLeft.BackColor = Color.FromArgb(245, 240, 255);
             pnlLeft.Controls.Add(monthCalendar);
             pnlLeft.Dock = DockStyle.Left;
-            pnlLeft.Location = new Point(0, 120);
+            pnlLeft.Location = new Point(0, 160);
+            pnlLeft.Margin = new Padding(3, 4, 3, 4);
             pnlLeft.Name = "pnlLeft";
-            pnlLeft.Padding = new Padding(20);
-            pnlLeft.Size = new Size(320, 480);
+            pnlLeft.Padding = new Padding(23, 27, 23, 27);
+            pnlLeft.Size = new Size(366, 640);
             pnlLeft.TabIndex = 1;
             // 
             // monthCalendar
             // 
             monthCalendar.Dock = DockStyle.Top;
             monthCalendar.Font = new Font("Segoe UI", 10F);
-            monthCalendar.Location = new Point(20, 20);
+            monthCalendar.Location = new Point(23, 27);
+            monthCalendar.Margin = new Padding(10, 12, 10, 12);
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 0;
             // 
@@ -137,10 +141,11 @@
             pnlRight.Controls.Add(dgvLessons);
             pnlRight.Controls.Add(lblSelectedDate);
             pnlRight.Dock = DockStyle.Fill;
-            pnlRight.Location = new Point(320, 120);
+            pnlRight.Location = new Point(366, 160);
+            pnlRight.Margin = new Padding(3, 4, 3, 4);
             pnlRight.Name = "pnlRight";
-            pnlRight.Padding = new Padding(30, 20, 30, 20);
-            pnlRight.Size = new Size(680, 480);
+            pnlRight.Padding = new Padding(34, 27, 34, 27);
+            pnlRight.Size = new Size(777, 640);
             pnlRight.TabIndex = 2;
             // 
             // dgvLessons
@@ -169,7 +174,8 @@
             dgvLessons.Dock = DockStyle.Bottom;
             dgvLessons.EnableHeadersVisualStyles = false;
             dgvLessons.GridColor = Color.FromArgb(237, 228, 255);
-            dgvLessons.Location = new Point(30, 60);
+            dgvLessons.Location = new Point(34, 80);
+            dgvLessons.Margin = new Padding(3, 4, 3, 4);
             dgvLessons.MultiSelect = false;
             dgvLessons.Name = "dgvLessons";
             dgvLessons.ReadOnly = true;
@@ -177,7 +183,7 @@
             dgvLessons.RowHeadersWidth = 51;
             dgvLessons.RowTemplate.Height = 36;
             dgvLessons.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLessons.Size = new Size(620, 400);
+            dgvLessons.Size = new Size(709, 533);
             dgvLessons.TabIndex = 1;
             dgvLessons.CellContentClick += dgvLessons_CellContentClick;
             // 
@@ -218,9 +224,9 @@
             lblSelectedDate.AutoSize = true;
             lblSelectedDate.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblSelectedDate.ForeColor = Color.FromArgb(94, 53, 177);
-            lblSelectedDate.Location = new Point(30, 20);
+            lblSelectedDate.Location = new Point(34, 27);
             lblSelectedDate.Name = "lblSelectedDate";
-            lblSelectedDate.Size = new Size(206, 25);
+            lblSelectedDate.Size = new Size(263, 32);
             lblSelectedDate.TabIndex = 0;
             lblSelectedDate.Text = "Выберите дату слева";
             // 
@@ -231,10 +237,11 @@
             pnlBottom.Controls.Add(btnEditLesson);
             pnlBottom.Controls.Add(btnDeleteLesson);
             pnlBottom.Dock = DockStyle.Bottom;
-            pnlBottom.Location = new Point(0, 600);
+            pnlBottom.Location = new Point(0, 800);
+            pnlBottom.Margin = new Padding(3, 4, 3, 4);
             pnlBottom.Name = "pnlBottom";
-            pnlBottom.Padding = new Padding(40, 15, 40, 15);
-            pnlBottom.Size = new Size(1000, 70);
+            pnlBottom.Padding = new Padding(46, 20, 46, 20);
+            pnlBottom.Size = new Size(1143, 93);
             pnlBottom.TabIndex = 3;
             // 
             // btnAddLesson
@@ -245,9 +252,10 @@
             btnAddLesson.FlatStyle = FlatStyle.Flat;
             btnAddLesson.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAddLesson.ForeColor = Color.White;
-            btnAddLesson.Location = new Point(40, 15);
+            btnAddLesson.Location = new Point(46, 20);
+            btnAddLesson.Margin = new Padding(3, 4, 3, 4);
             btnAddLesson.Name = "btnAddLesson";
-            btnAddLesson.Size = new Size(200, 40);
+            btnAddLesson.Size = new Size(229, 53);
             btnAddLesson.TabIndex = 0;
             btnAddLesson.Text = "+  Добавить занятие";
             btnAddLesson.UseVisualStyleBackColor = false;
@@ -261,9 +269,10 @@
             btnEditLesson.FlatStyle = FlatStyle.Flat;
             btnEditLesson.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEditLesson.ForeColor = Color.FromArgb(94, 53, 177);
-            btnEditLesson.Location = new Point(260, 15);
+            btnEditLesson.Location = new Point(297, 20);
+            btnEditLesson.Margin = new Padding(3, 4, 3, 4);
             btnEditLesson.Name = "btnEditLesson";
-            btnEditLesson.Size = new Size(180, 40);
+            btnEditLesson.Size = new Size(206, 53);
             btnEditLesson.TabIndex = 1;
             btnEditLesson.Text = "Редактировать";
             btnEditLesson.UseVisualStyleBackColor = false;
@@ -277,9 +286,10 @@
             btnDeleteLesson.FlatStyle = FlatStyle.Flat;
             btnDeleteLesson.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnDeleteLesson.ForeColor = Color.FromArgb(94, 53, 177);
-            btnDeleteLesson.Location = new Point(460, 15);
+            btnDeleteLesson.Location = new Point(526, 20);
+            btnDeleteLesson.Margin = new Padding(3, 4, 3, 4);
             btnDeleteLesson.Name = "btnDeleteLesson";
-            btnDeleteLesson.Size = new Size(180, 40);
+            btnDeleteLesson.Size = new Size(206, 53);
             btnDeleteLesson.TabIndex = 2;
             btnDeleteLesson.Text = "Удалить";
             btnDeleteLesson.UseVisualStyleBackColor = false;
@@ -287,15 +297,16 @@
             // 
             // Schedule_page
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1000, 670);
+            ClientSize = new Size(1143, 893);
             Controls.Add(pnlRight);
             Controls.Add(pnlLeft);
             Controls.Add(pnlBottom);
             Controls.Add(pnlTop);
-            MinimumSize = new Size(900, 598);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(1026, 782);
             Name = "Schedule_page";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Расписание";
