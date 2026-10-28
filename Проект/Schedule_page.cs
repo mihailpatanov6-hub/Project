@@ -16,9 +16,6 @@ namespace Проект
             selectedDate = DateTime.Today;
             monthCalendar.DateSelected += Calendar_DateSelected;
             btnBack.Click += (s, e) => this.Close();
-            btnAddLesson.Click += btnAddLesson_Click;
-            btnEditLesson.Click += btnEditLesson_Click;
-            btnDeleteLesson.Click += btnDeleteLesson_Click;
 
             LoadLessons();
             // Чтобы календарь при открытии показывал список занятий на сегодня
@@ -59,9 +56,13 @@ namespace Проект
 
         private void btnAddLesson_Click(object sender, EventArgs e)
         {
-            using var form = new LessonEditForm(selectedDate);
-            if (form.ShowDialog() == DialogResult.OK)
-                LoadLessons();
+            // Откладываем открытие, чтобы кнопка успела "отпуститься"
+            this.BeginInvoke(new Action(() =>
+            {
+                using var form = new LessonEditForm(selectedDate);
+                if (form.ShowDialog() == DialogResult.OK)
+                    LoadLessons();
+            }));
         }
 
         private void btnEditLesson_Click(object sender, EventArgs e)
@@ -77,9 +78,12 @@ namespace Проект
             var lesson = db.GetLessonById(id);
             if (lesson == null) return;
 
-            using var form = new LessonEditForm(lesson);
-            if (form.ShowDialog() == DialogResult.OK)
-                LoadLessons();
+            this.BeginInvoke(new Action(() =>
+            {
+                using var form = new LessonEditForm(lesson);
+                if (form.ShowDialog() == DialogResult.OK)
+                    LoadLessons();
+            }));
         }
 
         private void btnDeleteLesson_Click(object sender, EventArgs e)
