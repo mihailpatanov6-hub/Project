@@ -47,7 +47,6 @@
             btnBack = new Button();
             lblSubtitle = new Label();
             lblTitle = new Label();
-
             lblDate = new Label();
             dtpDate = new DateTimePicker();
             lblStudent = new Label();
@@ -62,16 +61,15 @@
             cmbStatus = new ComboBox();
             lblNotes = new Label();
             txtNotes = new TextBox();
-
             pnlBottom = new Panel();
             btnSave = new Button();
             btnCancel = new Button();
-
             pnlTop.SuspendLayout();
             pnlBottom.SuspendLayout();
             SuspendLayout();
-
+            // 
             // pnlTop
+            // 
             pnlTop.BackColor = Color.White;
             pnlTop.Controls.Add(btnBack);
             pnlTop.Controls.Add(lblSubtitle);
@@ -82,8 +80,9 @@
             pnlTop.Size = new Size(700, 120);
             pnlTop.TabIndex = 0;
             pnlTop.Paint += pnlTop_Paint;
-
+            // 
             // btnBack
+            // 
             btnBack.BackColor = Color.Transparent;
             btnBack.Cursor = Cursors.Hand;
             btnBack.FlatAppearance.BorderSize = 0;
@@ -98,122 +97,174 @@
             btnBack.Text = "←  Назад";
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
-
+            // 
+            // lblSubtitle
+            // 
+            lblSubtitle.Location = new Point(0, 0);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(100, 23);
+            lblSubtitle.TabIndex = 1;
+            // 
             // lblTitle
+            // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(94, 53, 177);
             lblTitle.Location = new Point(40, 52);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(250, 37);
+            lblTitle.Size = new Size(257, 37);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Добавить занятие";
-
+            // 
             // lblDate
+            // 
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Segoe UI", 10F);
             lblDate.ForeColor = Color.FromArgb(94, 53, 177);
             lblDate.Location = new Point(40, 150);
-            lblDate.Text = "Дата *";
-
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(39, 19);
+            lblDate.TabIndex = 16;
+            lblDate.Text = "Дата";
+            // 
             // dtpDate
-            dtpDate.Format = DateTimePickerFormat.Custom;
+            // 
             dtpDate.CustomFormat = "dd.MM.yyyy";
             dtpDate.Font = new Font("Segoe UI", 10F);
+            dtpDate.Format = DateTimePickerFormat.Custom;
             dtpDate.Location = new Point(200, 147);
-            dtpDate.Size = new Size(450, 30);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(450, 25);
             dtpDate.TabIndex = 3;
-
+            // 
             // lblStudent
+            // 
             lblStudent.AutoSize = true;
             lblStudent.Font = new Font("Segoe UI", 10F);
             lblStudent.ForeColor = Color.FromArgb(94, 53, 177);
             lblStudent.Location = new Point(40, 195);
-            lblStudent.Text = "Ученик *";
-
+            lblStudent.Name = "lblStudent";
+            lblStudent.Size = new Size(55, 19);
+            lblStudent.TabIndex = 15;
+            lblStudent.Text = "Ученик";
+            // 
             // cmbStudent
-            cmbStudent.Font = new Font("Segoe UI", 10F);
+            // 
             cmbStudent.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStudent.Font = new Font("Segoe UI", 10F);
             cmbStudent.Location = new Point(200, 192);
-            cmbStudent.Size = new Size(450, 31);
+            cmbStudent.Name = "cmbStudent";
+            cmbStudent.Size = new Size(450, 25);
             cmbStudent.TabIndex = 4;
             cmbStudent.SelectedIndexChanged += cmbStudent_SelectedIndexChanged;
-
+            // 
             // lblSubject
+            // 
             lblSubject.AutoSize = true;
             lblSubject.Font = new Font("Segoe UI", 10F);
             lblSubject.ForeColor = Color.FromArgb(94, 53, 177);
             lblSubject.Location = new Point(40, 240);
-            lblSubject.Text = "Предмет *";
-
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(65, 19);
+            lblSubject.TabIndex = 14;
+            lblSubject.Text = "Предмет";
+            // 
             // cmbSubject
-            cmbSubject.Font = new Font("Segoe UI", 10F);
+            // 
             cmbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSubject.Font = new Font("Segoe UI", 10F);
             cmbSubject.Location = new Point(200, 237);
-            cmbSubject.Size = new Size(450, 31);
+            cmbSubject.Name = "cmbSubject";
+            cmbSubject.Size = new Size(450, 25);
             cmbSubject.TabIndex = 5;
-
+            // 
             // lblStartTime
+            // 
             lblStartTime.AutoSize = true;
             lblStartTime.Font = new Font("Segoe UI", 10F);
             lblStartTime.ForeColor = Color.FromArgb(94, 53, 177);
             lblStartTime.Location = new Point(40, 285);
-            lblStartTime.Text = "Время начала *";
-
+            lblStartTime.Name = "lblStartTime";
+            lblStartTime.Size = new Size(97, 19);
+            lblStartTime.TabIndex = 13;
+            lblStartTime.Text = "Время начала";
+            // 
             // dtpStartTime
-            dtpStartTime.Format = DateTimePickerFormat.Time;
-            dtpStartTime.ShowUpDown = true;
+            // 
             dtpStartTime.Font = new Font("Segoe UI", 10F);
+            dtpStartTime.Format = DateTimePickerFormat.Time;
             dtpStartTime.Location = new Point(200, 282);
-            dtpStartTime.Size = new Size(220, 30);
+            dtpStartTime.Name = "dtpStartTime";
+            dtpStartTime.ShowUpDown = true;
+            dtpStartTime.Size = new Size(220, 25);
             dtpStartTime.TabIndex = 6;
-
+            // 
             // lblEndTime
+            // 
             lblEndTime.AutoSize = true;
             lblEndTime.Font = new Font("Segoe UI", 10F);
             lblEndTime.ForeColor = Color.FromArgb(94, 53, 177);
             lblEndTime.Location = new Point(40, 330);
+            lblEndTime.Name = "lblEndTime";
+            lblEndTime.Size = new Size(122, 19);
+            lblEndTime.TabIndex = 12;
             lblEndTime.Text = "Время окончания";
-
+            // 
             // dtpEndTime
-            dtpEndTime.Format = DateTimePickerFormat.Time;
-            dtpEndTime.ShowUpDown = true;
+            // 
             dtpEndTime.Font = new Font("Segoe UI", 10F);
+            dtpEndTime.Format = DateTimePickerFormat.Time;
             dtpEndTime.Location = new Point(200, 327);
-            dtpEndTime.Size = new Size(220, 30);
+            dtpEndTime.Name = "dtpEndTime";
+            dtpEndTime.ShowUpDown = true;
+            dtpEndTime.Size = new Size(220, 25);
             dtpEndTime.TabIndex = 7;
-
+            // 
             // lblStatus
+            // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 10F);
             lblStatus.ForeColor = Color.FromArgb(94, 53, 177);
             lblStatus.Location = new Point(40, 375);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(50, 19);
+            lblStatus.TabIndex = 11;
             lblStatus.Text = "Статус";
-
+            // 
             // cmbStatus
-            cmbStatus.Font = new Font("Segoe UI", 10F);
+            // 
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatus.Location = new Point(200, 372);
-            cmbStatus.Size = new Size(450, 31);
-            cmbStatus.TabIndex = 8;
+            cmbStatus.Font = new Font("Segoe UI", 10F);
             cmbStatus.Items.AddRange(new object[] { "Запланировано", "Проведено", "Отменено", "Перенесено" });
-
+            cmbStatus.Location = new Point(200, 372);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(450, 25);
+            cmbStatus.TabIndex = 8;
+            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
+            // 
             // lblNotes
+            // 
             lblNotes.AutoSize = true;
             lblNotes.Font = new Font("Segoe UI", 10F);
             lblNotes.ForeColor = Color.FromArgb(94, 53, 177);
             lblNotes.Location = new Point(40, 420);
+            lblNotes.Name = "lblNotes";
+            lblNotes.Size = new Size(62, 19);
+            lblNotes.TabIndex = 10;
             lblNotes.Text = "Заметки";
-
+            // 
             // txtNotes
-            txtNotes.Font = new Font("Segoe UI", 10F);
-            txtNotes.Multiline = true;
+            // 
             txtNotes.BorderStyle = BorderStyle.FixedSingle;
+            txtNotes.Font = new Font("Segoe UI", 10F);
             txtNotes.Location = new Point(200, 417);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
             txtNotes.Size = new Size(450, 80);
             txtNotes.TabIndex = 9;
-
+            // 
             // pnlBottom
+            // 
             pnlBottom.BackColor = Color.White;
             pnlBottom.Controls.Add(btnSave);
             pnlBottom.Controls.Add(btnCancel);
@@ -222,8 +273,9 @@
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(700, 70);
             pnlBottom.TabIndex = 10;
-
+            // 
             // btnSave
+            // 
             btnSave.BackColor = Color.FromArgb(124, 77, 255);
             btnSave.Cursor = Cursors.Hand;
             btnSave.FlatAppearance.BorderSize = 0;
@@ -237,8 +289,9 @@
             btnSave.Text = "Сохранить";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
-
+            // 
             // btnCancel
+            // 
             btnCancel.BackColor = Color.White;
             btnCancel.Cursor = Cursors.Hand;
             btnCancel.FlatAppearance.BorderColor = Color.FromArgb(214, 198, 245);
@@ -252,9 +305,10 @@
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
-
+            // 
             // LessonEditForm
-            AutoScaleDimensions = new SizeF(9F, 23F);
+            // 
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(700, 600);
@@ -282,7 +336,7 @@
             Name = "LessonEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Занятие";
-
+            Load += LessonEditForm_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
             pnlBottom.ResumeLayout(false);

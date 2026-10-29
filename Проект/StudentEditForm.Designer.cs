@@ -93,9 +93,10 @@
             lblLastName.ForeColor = Color.FromArgb(94, 53, 177);
             lblLastName.Location = new Point(40, 150);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(93, 23);
+            lblLastName.Size = new Size(70, 19);
             lblLastName.TabIndex = 3;
-            lblLastName.Text = "Фамилия *";
+            lblLastName.Text = "Фамилия ";
+            lblLastName.Click += lblLastName_Click;
             // 
             // txtLastName
             // 
@@ -104,7 +105,7 @@
             txtLastName.ForeColor = Color.FromArgb(60, 40, 100);
             txtLastName.Location = new Point(200, 147);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(300, 30);
+            txtLastName.Size = new Size(300, 25);
             txtLastName.TabIndex = 4;
             // 
             // lblFirstName
@@ -114,9 +115,9 @@
             lblFirstName.ForeColor = Color.FromArgb(94, 53, 177);
             lblFirstName.Location = new Point(40, 190);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(56, 23);
+            lblFirstName.Size = new Size(40, 19);
             lblFirstName.TabIndex = 5;
-            lblFirstName.Text = "Имя *";
+            lblFirstName.Text = "Имя ";
             // 
             // txtFirstName
             // 
@@ -125,7 +126,7 @@
             txtFirstName.ForeColor = Color.FromArgb(60, 40, 100);
             txtFirstName.Location = new Point(200, 187);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(300, 30);
+            txtFirstName.Size = new Size(300, 25);
             txtFirstName.TabIndex = 6;
             // 
             // lblMiddleName
@@ -135,7 +136,7 @@
             lblMiddleName.ForeColor = Color.FromArgb(94, 53, 177);
             lblMiddleName.Location = new Point(40, 230);
             lblMiddleName.Name = "lblMiddleName";
-            lblMiddleName.Size = new Size(83, 23);
+            lblMiddleName.Size = new Size(68, 19);
             lblMiddleName.TabIndex = 7;
             lblMiddleName.Text = "Отчество";
             // 
@@ -146,7 +147,7 @@
             txtMiddleName.ForeColor = Color.FromArgb(60, 40, 100);
             txtMiddleName.Location = new Point(200, 227);
             txtMiddleName.Name = "txtMiddleName";
-            txtMiddleName.Size = new Size(300, 30);
+            txtMiddleName.Size = new Size(300, 25);
             txtMiddleName.TabIndex = 8;
             // 
             // lblPhone
@@ -156,7 +157,7 @@
             lblPhone.ForeColor = Color.FromArgb(94, 53, 177);
             lblPhone.Location = new Point(40, 270);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(78, 23);
+            lblPhone.Size = new Size(63, 19);
             lblPhone.TabIndex = 9;
             lblPhone.Text = "Телефон";
             // 
@@ -167,7 +168,7 @@
             txtPhone.ForeColor = Color.FromArgb(60, 40, 100);
             txtPhone.Location = new Point(200, 267);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(300, 30);
+            txtPhone.Size = new Size(300, 25);
             txtPhone.TabIndex = 10;
             // 
             // lblSubject
@@ -177,9 +178,9 @@
             lblSubject.ForeColor = Color.FromArgb(94, 53, 177);
             lblSubject.Location = new Point(40, 310);
             lblSubject.Name = "lblSubject";
-            lblSubject.Size = new Size(90, 23);
+            lblSubject.Size = new Size(69, 19);
             lblSubject.TabIndex = 11;
-            lblSubject.Text = "Предмет *";
+            lblSubject.Text = "Предмет ";
             // 
             // txtSubject
             // 
@@ -188,7 +189,7 @@
             txtSubject.ForeColor = Color.FromArgb(60, 40, 100);
             txtSubject.Location = new Point(200, 307);
             txtSubject.Name = "txtSubject";
-            txtSubject.Size = new Size(300, 30);
+            txtSubject.Size = new Size(300, 25);
             txtSubject.TabIndex = 12;
             // 
             // lblClassLevel
@@ -198,7 +199,7 @@
             lblClassLevel.ForeColor = Color.FromArgb(94, 53, 177);
             lblClassLevel.Location = new Point(40, 350);
             lblClassLevel.Name = "lblClassLevel";
-            lblClassLevel.Size = new Size(136, 23);
+            lblClassLevel.Size = new Size(108, 19);
             lblClassLevel.TabIndex = 13;
             lblClassLevel.Text = "Класс / уровень";
             // 
@@ -209,7 +210,7 @@
             txtClassLevel.ForeColor = Color.FromArgb(60, 40, 100);
             txtClassLevel.Location = new Point(200, 347);
             txtClassLevel.Name = "txtClassLevel";
-            txtClassLevel.Size = new Size(300, 30);
+            txtClassLevel.Size = new Size(300, 25);
             txtClassLevel.TabIndex = 14;
             // 
             // lblNotes
@@ -219,7 +220,7 @@
             lblNotes.ForeColor = Color.FromArgb(94, 53, 177);
             lblNotes.Location = new Point(40, 390);
             lblNotes.Name = "lblNotes";
-            lblNotes.Size = new Size(74, 23);
+            lblNotes.Size = new Size(62, 19);
             lblNotes.TabIndex = 15;
             lblNotes.Text = "Заметки";
             // 
@@ -279,7 +280,7 @@
             // 
             // StudentEditForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(700, 560);

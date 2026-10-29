@@ -153,40 +153,14 @@ namespace Проект.Data
         }
         public List<Student> SearchStudents(string query)
         {
-            var list = new List<Student>();
-            using var connection = GetConnection();
-            connection.Open();
+            if (string.IsNullOrWhiteSpace(query))
+                return GetAllStudents();
 
-            var cmd = connection.CreateCommand();
-            cmd.CommandText = @"
-        SELECT Id, LastName, FirstName, MiddleName, Phone, Subject, ClassLevel, Notes 
-        FROM Students 
-        WHERE LastName LIKE $q 
-           OR FirstName LIKE $q 
-           OR MiddleName LIKE $q 
-           OR Phone LIKE $q 
-           OR Subject LIKE $q 
-           OR ClassLevel LIKE $q 
-           OR Notes LIKE $q
-        ORDER BY LastName, FirstName";
-            cmd.Parameters.AddWithValue("$q", $"%{query}%");
+            // Сначала получаем всех учеников
+            var allStudents = GetAllStudents();
 
-            using var reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                list.Add(new Student
-                {
-                    Id = reader.GetInt32(0),
-                    LastName = reader.GetString(1),
-                    FirstName = reader.GetString(2),
-                    MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3),
-                    Phone = reader.IsDBNull(4) ? null : reader.GetString(4),
-                    Subject = reader.GetString(5),
-                    ClassLevel = reader.IsDBNull(6) ? null : reader.GetString(6),
-                    Notes = reader.IsDBNull(7) ? null : reader.GetString(7)
-                });
-            }
-            return list;
+            // Применяем нечёткий поиск с порогом 50%
+            return FuzzySearch.FuzzySearchStudents(allStudents, query, threshold: 50);
         }
         public int AddStudent(string lastName, string firstName, string middleName,
                               string phone, string subject, string classLevel, string notes)
@@ -404,6 +378,16 @@ namespace Проект.Data
             }
             return list;
         }
+        public void UpdateLessonStatus(int id, string status)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "UPDATE Lessons SET Status = $stat, UpdatedAt = datetime('now') WHERE Id = $id";
+            cmd.Parameters.AddWithValue("$id", id);
+            cmd.Parameters.AddWithValue("$stat", status);
+            cmd.ExecuteNonQuery();
+        }
         public List<Student> GetUniqueStudents()
         {
             var list = new List<Student>();
@@ -514,18 +498,6 @@ namespace Проект.Data
             cmd.Parameters.AddWithValue("$id", id);
             cmd.ExecuteNonQuery();
         }
-
-        public void UpdateLessonStatus(int id, string status)
-        {
-            using var connection = GetConnection();
-            connection.Open();
-            var cmd = connection.CreateCommand();
-            cmd.CommandText = "UPDATE Lessons SET Status = $stat, UpdatedAt = datetime('now') WHERE Id = $id";
-            cmd.Parameters.AddWithValue("$id", id);
-            cmd.Parameters.AddWithValue("$stat", status);
-            cmd.ExecuteNonQuery();
-        }
-
         // Сводка: количество занятий и часов за период
         public (int count, double hours) GetSummary(int studentId, DateTime from, DateTime to)
         {

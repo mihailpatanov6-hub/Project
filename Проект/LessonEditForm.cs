@@ -249,6 +249,16 @@ namespace Проект
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LessonEditForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Класс для элементов выпадающего списка

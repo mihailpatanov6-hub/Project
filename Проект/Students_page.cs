@@ -71,13 +71,18 @@ namespace Проект
             }
 
             dgvStudents.Rows.Clear();
+
+            // Теперь используется нечёткий поиск
             var students = db.SearchStudents(query);
 
             foreach (var s in students)
             {
                 int rowIndex = dgvStudents.Rows.Add(
-                    s.FullName, s.Phone ?? "", s.Subject,
-                    s.ClassLevel ?? "", s.Notes ?? ""
+                    s.FullName,
+                    s.Phone ?? "",
+                    s.Subject,
+                    s.ClassLevel ?? "",
+                    s.Notes ?? ""
                 );
                 dgvStudents.Rows[rowIndex].Tag = s.Id;
             }

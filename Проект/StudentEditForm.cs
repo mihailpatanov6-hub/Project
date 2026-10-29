@@ -143,5 +143,10 @@ namespace Проект
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void lblLastName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

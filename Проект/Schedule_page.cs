@@ -14,15 +14,35 @@ namespace Проект
             InitializeComponent();
             db = new DatabaseHelper();
             selectedDate = DateTime.Today;
+         
 
-            // Оставляем только одну подписку
-            monthCalendar.DateSelected += Calendar_DateSelected;
+        // Оставляем только одну подписку
+        monthCalendar.DateSelected += Calendar_DateSelected;
 
             btnBack.Click += (s, e) => this.Close();
             dgvLessons.CellDoubleClick += dgvLessons_CellDoubleClick;
 
             UpdateDateLabel(selectedDate); // Обновляем заголовок при старте
             LoadLessons();
+        }
+        private readonly string[] statuses = { "Запланировано", "Проведено", "Отменено", "Перенесено" };
+        private void DgvLessons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Реагируем только на двойной клик по колонке "Статус"
+            if (e.RowIndex < 0 || dgvLessons.Columns[e.ColumnIndex].Name != "colStatus")
+                return;
+
+            var row = dgvLessons.Rows[e.RowIndex];
+            int id = Convert.ToInt32(row.Tag);
+            string current = row.Cells["colStatus"].Value?.ToString() ?? "";
+
+            // Находим следующий статус
+            int idx = Array.IndexOf(statuses, current);
+            string next = statuses[(idx + 1) % statuses.Length];
+
+            // Сохраняем в БД и обновляем ячейку
+            db.UpdateLessonStatus(id, next);
+            row.Cells["colStatus"].Value = next;
         }
 
         private void Calendar_DateSelected(object sender, DateRangeEventArgs e)
