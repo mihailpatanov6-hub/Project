@@ -202,20 +202,43 @@ namespace Проект
                 cmbStudent.Focus();
                 return;
             }
-            if (cmbSubject.SelectedItem == null && string.IsNullOrWhiteSpace(cmbSubject.Text))
+            if (cmbSubject.SelectedItem == null)
             {
-                MessageBox.Show("Выберите или введите предмет", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Выберите предмет", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbSubject.Focus();
+                return;
+            }
+
+            int studentId = ((StudentItem)cmbStudent.SelectedItem).Id;
+            string date = dtpDate.Value.ToString("yyyy-MM-dd");
+            string startTime = dtpStartTime.Value.ToString("HH:mm");
+            string endTime = dtpEndTime.Value.ToString("HH:mm");
+
+            // Проверка: конец должен быть позже начала
+            if (string.Compare(endTime, startTime) <= 0)
+            {
+                MessageBox.Show("Время окончания должно быть позже времени начала", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpEndTime.Focus();
+                return;
+            }
+
+            // Проверка пересечения с другими занятиями
+            int excludeId = lesson?.Id ?? 0;
+            if (db.IsLessonTimeOverlapping(date, startTime, endTime, excludeId))
+            {
+                MessageBox.Show(
+                    $"Уже есть занятие {dtpDate.Value:dd.MM.yyyy},\nкоторое пересекается с {startTime} - {endTime}!\n\nВыберите другое время.",
+                    "Время занято",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                dtpStartTime.Focus();
                 return;
             }
 
             try
             {
-                int studentId = ((StudentItem)cmbStudent.SelectedItem).Id;
-                string subject = cmbSubject.Text.Trim(); // Берем то, что выбрано или введено
-                string date = dtpDate.Value.ToString("yyyy-MM-dd");
-                string startTime = dtpStartTime.Value.ToString("HH:mm");
-                string endTime = dtpEndTime.Value.ToString("HH:mm");
+                string subject = cmbSubject.SelectedItem.ToString();
                 string status = cmbStatus.Text;
 
                 if (lesson == null)

@@ -488,7 +488,27 @@ namespace Проект.Data
             cmd.Parameters.AddWithValue("$nt", notes);
             cmd.ExecuteNonQuery();
         }
+        public bool IsLessonTimeOverlapping(string lessonDate, string startTime, string endTime, int excludeLessonId = 0)
+        {
+            using var connection = GetConnection();
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            // Убрали условие StudentId = $sid — теперь проверяем ВСЕ занятия
+            cmd.CommandText = @"
+        SELECT COUNT(*) FROM Lessons 
+        WHERE LessonDate = $date 
+          AND Id <> $excludeId
+          AND StartTime < $endTime
+          AND (EndTime > $startTime OR EndTime IS NULL)";
+
+            cmd.Parameters.AddWithValue("$date", lessonDate);
+            cmd.Parameters.AddWithValue("$startTime", startTime);
+            cmd.Parameters.AddWithValue("$endTime", endTime);
+            cmd.Parameters.AddWithValue("$excludeId", excludeLessonId);
+
+            return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+        }
         public void DeleteLesson(int id)
         {
             using var connection = GetConnection();
