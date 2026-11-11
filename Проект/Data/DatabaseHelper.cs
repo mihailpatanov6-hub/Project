@@ -544,6 +544,140 @@ namespace Проект.Data
             }
             return (0, 0);
         }
+        // ========== СВОДКА ==========
+        public class SummaryData
+        {
+            public int TotalLessons { get; set; }
+            public double TotalHours { get; set; }
+            public int TotalMissed { get; set; }
+            public string ActiveDay { get; set; } = "—";
+            public int ActiveDayCount { get; set; }
+            public List<StudentStat> StudentStats { get; set; } = new List<StudentStat>();
+        }
+
+        public class StudentStat
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public int Done { get; set; }
+            public int Missed { get; set; }
+            public double Hours { get; set; }
+        }
+
+        public SummaryData GetSummaryData(DateTime from, DateTime to)
+        {
+            var result = new SummaryData();
+            using var connection = GetConnection();
+            connection.Open();
+
+            // 1. Общая статистика (занятия, часы, пропуски)
+            var cmdGeneral = connection.CreateCommand();
+            cmdGeneral.CommandText = @"
+                SELECT 
+                    SUM(CASE WHEN Status = 'Проведено' THEN 1 ELSE 0 END) as DoneCount,
+                    SUM(CASE WHEN Status = 'Проведено' AND EndTime IS NOT NULL THEN 
+                        (CAST(substr(EndTime,1,2) AS INTEGER) * 60 + CAST(substr(EndTime,4,2) AS INTEGER)) -
+                        (CAST(substr(StartTime,1,2) AS INTEGER) * 60 + CAST(substr(StartTime,4,2) AS INTEGER))
+                        ELSE 0 END) as TotalMinutes,
+                    SUM(CASE WHEN Status IN ('Отменено', 'Перенесено') THEN 1 ELSE 0 END) as MissedCount
+                FROM Lessons
+                WHERE LessonDate BETWEEN $from AND $to";
+
+            cmdGeneral.Parameters.AddWithValue("$from", from.ToString("yyyy-MM-dd"));
+            cmdGeneral.Parameters.AddWithValue("$to", to.ToString("yyyy-MM-dd"));
+
+            using (var reader = cmdGeneral.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    result.TotalLessons = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                    double totalMinutes = reader.IsDBNull(1) ? 0 : reader.GetDouble(1);
+                    result.TotalHours = Math.Round(totalMinutes / 60.0, 1);
+                    result.TotalMissed = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
+                }
+            }
+
+            // 2. Активный день недели
+            var cmdActiveDay = connection.CreateCommand();
+            cmdActiveDay.CommandText = @"
+                SELECT strftime('%w', LessonDate) as DayOfWeek, COUNT(*) as Cnt
+                FROM Lessons
+                WHERE LessonDate BETWEEN $from AND $to AND Status = 'Проведено'
+                GROUP BY DayOfWeek
+                ORDER BY Cnt DESC
+                LIMIT 1";
+            cmdActiveDay.Parameters.AddWithValue("$from", from.ToString("yyyy-MM-dd"));
+            cmdActiveDay.Parameters.AddWithValue("$to", to.ToString("yyyy-MM-dd"));
+
+            using (var reader = cmdActiveDay.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    string[] days = { "Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота" };
+                    int dayIndex = int.Parse(reader.GetString(0)); // SQLite возвращает 0 для Вс, 1 для Пн...
+                    result.ActiveDay = days[dayIndex];
+                    result.ActiveDayCount = reader.GetInt32(1);
+                }
+            }
+
+            // 3. Детализация по ученикам
+            var cmdStudents = connection.CreateCommand();
+            cmdStudents.CommandText = @"
+                SELECT s.Id, s.LastName, s.FirstName, s.MiddleName,
+                       SUM(CASE WHEN l.Status = 'Проведено' THEN 1 ELSE 0 END) as Done,
+                       SUM(CASE WHEN l.Status IN ('Отменено', 'Перенесено') THEN 1 ELSE 0 END) as Missed,
+                       SUM(CASE WHEN l.Status = 'Проведено' AND l.EndTime IS NOT NULL THEN 
+                           (CAST(substr(l.EndTime,1,2) AS INTEGER) * 60 + CAST(substr(l.EndTime,4,2) AS INTEGER)) -
+                           (CAST(substr(l.StartTime,1,2) AS INTEGER) * 60 + CAST(substr(l.StartTime,4,2) AS INTEGER))
+                           ELSE 0 END) as Minutes
+                FROM Students s
+                JOIN Lessons l ON s.Id = l.StudentId
+                WHERE l.LessonDate BETWEEN $from AND $to
+                GROUP BY s.Id
+                ORDER BY Done DESC";
+            cmdStudents.Parameters.AddWithValue("$from", from.ToString("yyyy-MM-dd"));
+            cmdStudents.Parameters.AddWithValue("$to", to.ToString("yyyy-MM-dd"));
+
+            using (var reader = cmdStudents.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    // Читаем ФИО (индексы сдвинулись на 1, так как Id теперь на 0 позиции)
+                    string fio = $"{reader.GetString(1)} {reader.GetString(2)}";
+                    if (!reader.IsDBNull(3)) fio += $" {reader.GetString(3)}";
+
+                    result.StudentStats.Add(new StudentStat
+                    {
+                        Id = reader.GetInt32(0),                     // <-- ID теперь первый
+                        Name = fio,
+                        Done = reader.GetInt32(4),                   // <-- Проведено теперь 4-й
+                        Missed = reader.GetInt32(5),                 // <-- Пропущено теперь 5-й
+                        Hours = Math.Round(reader.GetDouble(6) / 60.0, 1) // <-- Минуты теперь 6-й
+                    });
+                }
+            }
+
+            return result;
+        }
+        // Получить дату самого первого занятия в базе
+        public DateTime GetFirstLessonDate()
+        {
+            using var connection = GetConnection();
+            connection.Open();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT MIN(LessonDate) FROM Lessons";
+
+            var result = cmd.ExecuteScalar();
+
+            // Если база пуста, возвращаем сегодняшнюю дату
+            if (result == null || result == DBNull.Value)
+                return DateTime.Today;
+
+            if (DateTime.TryParse(result.ToString(), out DateTime firstDate))
+                return firstDate;
+
+            return DateTime.Today;
+        }
     }
 
     public class Student

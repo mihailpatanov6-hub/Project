@@ -146,17 +146,22 @@ namespace Проект
                 // Сначала принудительно загружаем ВСЕ предметы этого ученика в список
                 cmbSubject.Items.Clear();
                 var student = db.GetStudentById(lesson.StudentId);
+
+                // Если у ученика заполнены предметы, разбиваем их
                 if (student != null && !string.IsNullOrWhiteSpace(student.Subject))
                 {
                     string[] subjects = student.Subject.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string subj in subjects)
                     {
-                        cmbSubject.Items.Add(subj.Trim());
+                        string trimmed = subj.Trim();
+                        if (!string.IsNullOrEmpty(trimmed))
+                        {
+                            cmbSubject.Items.Add(trimmed);
+                        }
                     }
                 }
 
-                // Теперь выбираем тот предмет, который был сохранен в занятии.
-                // Если его нет в списке (например, ученика перевели на другой предмет), добавляем его принудительно.
+                // Восстанавливаем предмет из самого занятия (даже если у ученика он удален)
                 if (!string.IsNullOrEmpty(lesson.Subject))
                 {
                     if (!cmbSubject.Items.Contains(lesson.Subject))
@@ -164,6 +169,10 @@ namespace Проект
                         cmbSubject.Items.Add(lesson.Subject);
                     }
                     cmbSubject.SelectedItem = lesson.Subject;
+                }
+                else if (cmbSubject.Items.Count > 0)
+                {
+                    cmbSubject.SelectedIndex = 0; // Если у занятия нет предмета, ставим первый из списка
                 }
 
                 // 4. Время начала
