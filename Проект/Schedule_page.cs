@@ -22,6 +22,9 @@ namespace Проект
             btnBack.Click += (s, e) => this.Close();
             dgvLessons.CellDoubleClick += dgvLessons_CellDoubleClick;
 
+            // Контекстное меню для смены статуса
+            dgvLessons.CellMouseDown += DgvLessons_CellMouseDown;
+
             UpdateDateLabel(selectedDate); // Обновляем заголовок при старте
             LoadLessons();
         }
@@ -155,6 +158,52 @@ namespace Проект
                 using var form = new LessonCardForm(lesson, studentName);
                 form.ShowDialog();
             }
+        }
+        // ===== ПРАВЫЙ КЛИК — МЕНЮ СТАТУСОВ =====
+        private void DgvLessons_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Реагируем только на правый клик
+            if (e.Button != MouseButtons.Right) return;
+            if (e.RowIndex < 0) return;
+
+            // Проверяем, что клик именно по столбцу "Статус"
+            if (dgvLessons.Columns[e.ColumnIndex].Name != "colStatus") return;
+
+            // Выделяем строку
+            dgvLessons.ClearSelection();
+            dgvLessons.Rows[e.RowIndex].Selected = true;
+            dgvLessons.CurrentCell = dgvLessons.Rows[e.RowIndex].Cells[0];
+
+            // Получаем данные
+            int id = Convert.ToInt32(dgvLessons.Rows[e.RowIndex].Tag);
+            string currentStatus = dgvLessons.Rows[e.RowIndex].Cells["colStatus"].Value?.ToString() ?? "";
+
+            // Создаём меню
+            ContextMenuStrip menu = new ContextMenuStrip();
+
+            foreach (string status in statuses)
+            {
+                ToolStripMenuItem item = new ToolStripMenuItem(status);
+
+                // Отмечаем текущий статус галочкой
+                if (status == currentStatus)
+                {
+                    item.Checked = true;
+                    item.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                }
+
+                // При клике меняем статус
+                item.Click += (s, args) =>
+                {
+                    db.UpdateLessonStatus(id, status);
+                    dgvLessons.Rows[e.RowIndex].Cells["colStatus"].Value = status;
+                };
+
+                menu.Items.Add(item);
+            }
+
+            // Показываем меню
+            menu.Show(dgvLessons, dgvLessons.PointToClient(Cursor.Position));
         }
     }
 }
