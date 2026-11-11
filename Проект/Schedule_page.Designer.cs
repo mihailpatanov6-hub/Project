@@ -10,7 +10,6 @@
         private Label lblSubtitle;
 
         private Panel pnlLeft;
-        private MonthCalendar monthCalendar;
 
         private Panel pnlRight;
         private Label lblSelectedDate;
@@ -41,7 +40,6 @@
             lblSubtitle = new Label();
             lblTitle = new Label();
             pnlLeft = new Panel();
-            monthCalendar = new MonthCalendar();
             pnlRight = new Panel();
             dgvLessons = new DataGridView();
             colTime = new DataGridViewTextBoxColumn();
@@ -54,7 +52,6 @@
             btnEditLesson = new Button();
             btnDeleteLesson = new Button();
             pnlTop.SuspendLayout();
-            pnlLeft.SuspendLayout();
             pnlRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLessons).BeginInit();
             pnlBottom.SuspendLayout();
@@ -115,21 +112,12 @@
             // pnlLeft
             // 
             pnlLeft.BackColor = Color.FromArgb(245, 240, 255);
-            pnlLeft.Controls.Add(monthCalendar);
             pnlLeft.Dock = DockStyle.Left;
             pnlLeft.Location = new Point(0, 120);
             pnlLeft.Name = "pnlLeft";
             pnlLeft.Padding = new Padding(20);
-            pnlLeft.Size = new Size(320, 480);
+            pnlLeft.Size = new Size(360, 480); // Ширина увеличена под календарь
             pnlLeft.TabIndex = 1;
-            // 
-            // monthCalendar
-            // 
-            monthCalendar.Dock = DockStyle.Top;
-            monthCalendar.Font = new Font("Segoe UI", 10F);
-            monthCalendar.Location = new Point(20, 20);
-            monthCalendar.Name = "monthCalendar";
-            monthCalendar.TabIndex = 0;
             // 
             // pnlRight
             // 
@@ -137,10 +125,10 @@
             pnlRight.Controls.Add(dgvLessons);
             pnlRight.Controls.Add(lblSelectedDate);
             pnlRight.Dock = DockStyle.Fill;
-            pnlRight.Location = new Point(320, 120);
+            pnlRight.Location = new Point(360, 120);
             pnlRight.Name = "pnlRight";
             pnlRight.Padding = new Padding(30, 20, 30, 20);
-            pnlRight.Size = new Size(680, 480);
+            pnlRight.Size = new Size(640, 480);
             pnlRight.TabIndex = 2;
             // 
             // dgvLessons
@@ -174,17 +162,15 @@
             dgvLessons.Name = "dgvLessons";
             dgvLessons.ReadOnly = true;
             dgvLessons.RowHeadersVisible = false;
-            dgvLessons.RowHeadersWidth = 51;
             dgvLessons.RowTemplate.Height = 36;
             dgvLessons.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLessons.Size = new Size(620, 400);
+            dgvLessons.Size = new Size(580, 400);
             dgvLessons.TabIndex = 1;
             // 
             // colTime
             // 
-            colTime.FillWeight = 30F;
+            colTime.FillWeight = 35F;
             colTime.HeaderText = "Время";
-            colTime.MinimumWidth = 6;
             colTime.Name = "colTime";
             colTime.ReadOnly = true;
             // 
@@ -192,7 +178,6 @@
             // 
             colStudent.FillWeight = 40F;
             colStudent.HeaderText = "Ученик";
-            colStudent.MinimumWidth = 6;
             colStudent.Name = "colStudent";
             colStudent.ReadOnly = true;
             // 
@@ -200,7 +185,6 @@
             // 
             colSubject.FillWeight = 30F;
             colSubject.HeaderText = "Предмет";
-            colSubject.MinimumWidth = 6;
             colSubject.Name = "colSubject";
             colSubject.ReadOnly = true;
             // 
@@ -208,18 +192,17 @@
             // 
             colStatus.FillWeight = 30F;
             colStatus.HeaderText = "Статус";
-            colStatus.MinimumWidth = 6;
             colStatus.Name = "colStatus";
             colStatus.ReadOnly = true;
             // 
             // lblSelectedDate
             // 
             lblSelectedDate.AutoSize = true;
-            lblSelectedDate.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblSelectedDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold); // Шрифт уменьшен до 12F
             lblSelectedDate.ForeColor = Color.FromArgb(94, 53, 177);
             lblSelectedDate.Location = new Point(30, 20);
             lblSelectedDate.Name = "lblSelectedDate";
-            lblSelectedDate.Size = new Size(206, 25);
+            lblSelectedDate.Size = new Size(206, 21);
             lblSelectedDate.TabIndex = 0;
             lblSelectedDate.Text = "Выберите дату слева";
             // 
@@ -300,7 +283,6 @@
             Text = "Расписание";
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
-            pnlLeft.ResumeLayout(false);
             pnlRight.ResumeLayout(false);
             pnlRight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLessons).EndInit();

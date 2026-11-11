@@ -60,7 +60,8 @@ namespace Проект
 
         private void OpenSummary()
         {
-            MessageBox.Show("Открыть окно «Сводка»", "Заглушка");
+            var f = new Summary_page();
+            f.ShowDialog();
         }
 
         private void ShowAbout()
