@@ -76,6 +76,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_DC932024981F43F4A13DEDF513048806"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
@@ -108,7 +118,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_55DF5ABA46424A519DA162927046D2AB"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[DesktopFolder]TutorApp"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -168,7 +178,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TutorApp"
         "ProductCode" = "8:{E74216C3-7F44-4B74-9D5A-713F2838291A}"
-        "PackageCode" = "8:{2F499A62-AF61-4E94-B5E5-5716338FE975}"
+        "PackageCode" = "8:{E3E7967E-5C8E-4F48-8595-B5369F9B530A}"
         "UpgradeCode" = "8:{CB1E0315-B912-40C9-ABC4-455B17A9E35B}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
