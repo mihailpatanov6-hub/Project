@@ -19,7 +19,7 @@ namespace Проект.Properties {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -87,6 +87,29 @@ namespace Проект.Properties {
             get {
                 object obj = ResourceManager.GetObject("schedule", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ
+        ///Программа «Учёт репетиторских занятий»
+        ///СОДЕРЖАНИЕ
+        ///1.	Введение
+        ///2.	Главная страница
+        ///3.	Раздел «Ученики»
+        ///4.	Раздел «Расписание»
+        ///5.	Раздел «Сводка»
+        ///ВВЕДЕНИЕ
+        ///Программа «Учёт репетиторских занятий» помогает репетитору вести базу учеников, планировать расписание и отслеживать статистику занятий.
+        ///Основные возможности программы:
+        ///•	Добавление, редактирование и удаление учеников;
+        ///•	Создание расписания занятий;
+        ///•	Быстрая смена статуса занятия;
+        ///•	Защита от двойного бронирования вре [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string Руководство {
+            get {
+                return ResourceManager.GetString("Руководство", resourceCulture);
             }
         }
     }

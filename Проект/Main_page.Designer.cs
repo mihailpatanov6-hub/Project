@@ -61,6 +61,7 @@
             lblSummaryDesc = new Label();
             lblSummaryTitle = new Label();
             picSummaryIcon = new PictureBox();
+            руководствоToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             pnlTop.SuspendLayout();
             pnlCards.SuspendLayout();
@@ -79,8 +80,8 @@
             menuStrip.Items.AddRange(new ToolStripItem[] { miFile, miHelp });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Padding = new Padding(14, 5, 0, 5);
-            menuStrip.Size = new Size(1143, 34);
+            menuStrip.Padding = new Padding(12, 4, 0, 4);
+            menuStrip.Size = new Size(1000, 27);
             menuStrip.TabIndex = 0;
             // 
             // miFile
@@ -88,27 +89,27 @@
             miFile.DropDownItems.AddRange(new ToolStripItem[] { miExit });
             miFile.ForeColor = Color.FromArgb(94, 53, 177);
             miFile.Name = "miFile";
-            miFile.Size = new Size(59, 24);
+            miFile.Size = new Size(48, 19);
             miFile.Text = "Файл";
             // 
             // miExit
             // 
             miExit.Name = "miExit";
-            miExit.Size = new Size(136, 26);
+            miExit.Size = new Size(108, 22);
             miExit.Text = "Выход";
             // 
             // miHelp
             // 
-            miHelp.DropDownItems.AddRange(new ToolStripItem[] { miAbout });
+            miHelp.DropDownItems.AddRange(new ToolStripItem[] { руководствоToolStripMenuItem, miAbout });
             miHelp.ForeColor = Color.FromArgb(94, 53, 177);
             miHelp.Name = "miHelp";
-            miHelp.Size = new Size(81, 24);
+            miHelp.Size = new Size(65, 19);
             miHelp.Text = "Справка";
             // 
             // miAbout
             // 
             miAbout.Name = "miAbout";
-            miAbout.Size = new Size(187, 26);
+            miAbout.Size = new Size(180, 22);
             miAbout.Text = "О программе";
             // 
             // pnlTop
@@ -117,10 +118,9 @@
             pnlTop.Controls.Add(lblSubtitle);
             pnlTop.Controls.Add(lblTitle);
             pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(0, 34);
-            pnlTop.Margin = new Padding(3, 4, 3, 4);
+            pnlTop.Location = new Point(0, 27);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1143, 173);
+            pnlTop.Size = new Size(1000, 130);
             pnlTop.TabIndex = 1;
             pnlTop.Paint += pnlTop_Paint;
             // 
@@ -129,9 +129,9 @@
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 11F);
             lblSubtitle.ForeColor = Color.FromArgb(124, 77, 255);
-            lblSubtitle.Location = new Point(49, 107);
+            lblSubtitle.Location = new Point(43, 80);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(482, 25);
+            lblSubtitle.Size = new Size(388, 20);
             lblSubtitle.TabIndex = 0;
             lblSubtitle.Text = "Управляйте учениками и расписанием в одном месте";
             // 
@@ -140,9 +140,9 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(94, 53, 177);
-            lblTitle.Location = new Point(46, 40);
+            lblTitle.Location = new Point(40, 30);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(539, 50);
+            lblTitle.Size = new Size(437, 41);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Учёт репетиторских занятий";
             // 
@@ -157,13 +157,12 @@
             pnlCards.Controls.Add(pnlSchedule, 1, 0);
             pnlCards.Controls.Add(pnlSummary, 2, 0);
             pnlCards.Dock = DockStyle.Fill;
-            pnlCards.Location = new Point(0, 207);
-            pnlCards.Margin = new Padding(3, 4, 3, 4);
+            pnlCards.Location = new Point(0, 157);
             pnlCards.Name = "pnlCards";
-            pnlCards.Padding = new Padding(46, 40, 46, 53);
+            pnlCards.Padding = new Padding(40, 30, 40, 40);
             pnlCards.RowCount = 1;
-            pnlCards.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            pnlCards.Size = new Size(1143, 593);
+            pnlCards.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+            pnlCards.Size = new Size(1000, 443);
             pnlCards.TabIndex = 0;
             // 
             // pnlStudents
@@ -174,10 +173,10 @@
             pnlStudents.Controls.Add(picStudentsIcon);
             pnlStudents.Cursor = Cursors.Hand;
             pnlStudents.Dock = DockStyle.Fill;
-            pnlStudents.Location = new Point(60, 56);
-            pnlStudents.Margin = new Padding(14, 16, 14, 16);
+            pnlStudents.Location = new Point(52, 42);
+            pnlStudents.Margin = new Padding(12, 12, 12, 12);
             pnlStudents.Name = "pnlStudents";
-            pnlStudents.Size = new Size(322, 468);
+            pnlStudents.Size = new Size(282, 349);
             pnlStudents.TabIndex = 0;
             pnlStudents.Paint += Card_Paint;
             // 
@@ -185,9 +184,9 @@
             // 
             lblStudentsDesc.Font = new Font("Segoe UI", 10F);
             lblStudentsDesc.ForeColor = Color.FromArgb(124, 77, 255);
-            lblStudentsDesc.Location = new Point(34, 187);
+            lblStudentsDesc.Location = new Point(30, 140);
             lblStudentsDesc.Name = "lblStudentsDesc";
-            lblStudentsDesc.Size = new Size(263, 80);
+            lblStudentsDesc.Size = new Size(230, 60);
             lblStudentsDesc.TabIndex = 0;
             lblStudentsDesc.Text = "Добавляйте, редактируйте и удаляйте учеников";
             // 
@@ -196,9 +195,9 @@
             lblStudentsTitle.AutoSize = true;
             lblStudentsTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblStudentsTitle.ForeColor = Color.FromArgb(94, 53, 177);
-            lblStudentsTitle.Location = new Point(32, 140);
+            lblStudentsTitle.Location = new Point(28, 105);
             lblStudentsTitle.Name = "lblStudentsTitle";
-            lblStudentsTitle.Size = new Size(131, 37);
+            lblStudentsTitle.Size = new Size(105, 30);
             lblStudentsTitle.TabIndex = 1;
             lblStudentsTitle.Text = "Ученики";
             // 
@@ -206,10 +205,9 @@
             // 
             picStudentsIcon.BackColor = Color.Transparent;
             picStudentsIcon.Image = Properties.Resources.people;
-            picStudentsIcon.Location = new Point(34, 40);
-            picStudentsIcon.Margin = new Padding(3, 4, 3, 4);
+            picStudentsIcon.Location = new Point(30, 30);
             picStudentsIcon.Name = "picStudentsIcon";
-            picStudentsIcon.Size = new Size(64, 75);
+            picStudentsIcon.Size = new Size(56, 56);
             picStudentsIcon.SizeMode = PictureBoxSizeMode.StretchImage;
             picStudentsIcon.TabIndex = 2;
             picStudentsIcon.TabStop = false;
@@ -222,10 +220,10 @@
             pnlSchedule.Controls.Add(picScheduleIcon);
             pnlSchedule.Cursor = Cursors.Hand;
             pnlSchedule.Dock = DockStyle.Fill;
-            pnlSchedule.Location = new Point(410, 56);
-            pnlSchedule.Margin = new Padding(14, 16, 14, 16);
+            pnlSchedule.Location = new Point(358, 42);
+            pnlSchedule.Margin = new Padding(12, 12, 12, 12);
             pnlSchedule.Name = "pnlSchedule";
-            pnlSchedule.Size = new Size(322, 468);
+            pnlSchedule.Size = new Size(282, 349);
             pnlSchedule.TabIndex = 1;
             pnlSchedule.Paint += Card_Paint;
             // 
@@ -233,9 +231,9 @@
             // 
             lblScheduleDesc.Font = new Font("Segoe UI", 10F);
             lblScheduleDesc.ForeColor = Color.FromArgb(124, 77, 255);
-            lblScheduleDesc.Location = new Point(34, 187);
+            lblScheduleDesc.Location = new Point(30, 140);
             lblScheduleDesc.Name = "lblScheduleDesc";
-            lblScheduleDesc.Size = new Size(263, 80);
+            lblScheduleDesc.Size = new Size(230, 60);
             lblScheduleDesc.TabIndex = 0;
             lblScheduleDesc.Text = "Составляйте расписание и следите за занятиями";
             // 
@@ -244,9 +242,9 @@
             lblScheduleTitle.AutoSize = true;
             lblScheduleTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblScheduleTitle.ForeColor = Color.FromArgb(94, 53, 177);
-            lblScheduleTitle.Location = new Point(32, 140);
+            lblScheduleTitle.Location = new Point(28, 105);
             lblScheduleTitle.Name = "lblScheduleTitle";
-            lblScheduleTitle.Size = new Size(172, 37);
+            lblScheduleTitle.Size = new Size(138, 30);
             lblScheduleTitle.TabIndex = 1;
             lblScheduleTitle.Text = "Расписание";
             // 
@@ -254,10 +252,9 @@
             // 
             picScheduleIcon.BackColor = Color.Transparent;
             picScheduleIcon.Image = Properties.Resources.schedule;
-            picScheduleIcon.Location = new Point(34, 40);
-            picScheduleIcon.Margin = new Padding(3, 4, 3, 4);
+            picScheduleIcon.Location = new Point(30, 30);
             picScheduleIcon.Name = "picScheduleIcon";
-            picScheduleIcon.Size = new Size(64, 75);
+            picScheduleIcon.Size = new Size(56, 56);
             picScheduleIcon.SizeMode = PictureBoxSizeMode.StretchImage;
             picScheduleIcon.TabIndex = 2;
             picScheduleIcon.TabStop = false;
@@ -270,10 +267,10 @@
             pnlSummary.Controls.Add(picSummaryIcon);
             pnlSummary.Cursor = Cursors.Hand;
             pnlSummary.Dock = DockStyle.Fill;
-            pnlSummary.Location = new Point(760, 56);
-            pnlSummary.Margin = new Padding(14, 16, 14, 16);
+            pnlSummary.Location = new Point(664, 42);
+            pnlSummary.Margin = new Padding(12, 12, 12, 12);
             pnlSummary.Name = "pnlSummary";
-            pnlSummary.Size = new Size(323, 468);
+            pnlSummary.Size = new Size(284, 349);
             pnlSummary.TabIndex = 2;
             pnlSummary.Paint += Card_Paint;
             // 
@@ -281,9 +278,9 @@
             // 
             lblSummaryDesc.Font = new Font("Segoe UI", 10F);
             lblSummaryDesc.ForeColor = Color.FromArgb(124, 77, 255);
-            lblSummaryDesc.Location = new Point(34, 187);
+            lblSummaryDesc.Location = new Point(30, 140);
             lblSummaryDesc.Name = "lblSummaryDesc";
-            lblSummaryDesc.Size = new Size(263, 80);
+            lblSummaryDesc.Size = new Size(230, 60);
             lblSummaryDesc.TabIndex = 0;
             lblSummaryDesc.Text = "Смотрите количество занятий и часов за период";
             // 
@@ -292,9 +289,9 @@
             lblSummaryTitle.AutoSize = true;
             lblSummaryTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblSummaryTitle.ForeColor = Color.FromArgb(94, 53, 177);
-            lblSummaryTitle.Location = new Point(32, 140);
+            lblSummaryTitle.Location = new Point(28, 105);
             lblSummaryTitle.Name = "lblSummaryTitle";
-            lblSummaryTitle.Size = new Size(114, 37);
+            lblSummaryTitle.Size = new Size(91, 30);
             lblSummaryTitle.TabIndex = 1;
             lblSummaryTitle.Text = "Сводка";
             // 
@@ -302,26 +299,31 @@
             // 
             picSummaryIcon.BackColor = Color.Transparent;
             picSummaryIcon.Image = Properties.Resources._string;
-            picSummaryIcon.Location = new Point(34, 40);
-            picSummaryIcon.Margin = new Padding(3, 4, 3, 4);
+            picSummaryIcon.Location = new Point(30, 30);
             picSummaryIcon.Name = "picSummaryIcon";
-            picSummaryIcon.Size = new Size(64, 75);
+            picSummaryIcon.Size = new Size(56, 56);
             picSummaryIcon.SizeMode = PictureBoxSizeMode.StretchImage;
             picSummaryIcon.TabIndex = 2;
             picSummaryIcon.TabStop = false;
             // 
+            // руководствоToolStripMenuItem
+            // 
+            руководствоToolStripMenuItem.Name = "руководствоToolStripMenuItem";
+            руководствоToolStripMenuItem.Size = new Size(180, 22);
+            руководствоToolStripMenuItem.Text = "Руководство";
+            руководствоToolStripMenuItem.Click += руководствоToolStripMenuItem_Click;
+            // 
             // Main_page
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1143, 800);
+            ClientSize = new Size(1000, 600);
             Controls.Add(pnlCards);
             Controls.Add(pnlTop);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
-            Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(1026, 731);
+            MinimumSize = new Size(900, 558);
             Name = "Main_page";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Учёт репетиторских занятий";
@@ -374,5 +376,7 @@
                 e.Graphics.DrawRectangle(pen, rect);
             }
         }
+
+        private ToolStripMenuItem руководствоToolStripMenuItem;
     }
 }

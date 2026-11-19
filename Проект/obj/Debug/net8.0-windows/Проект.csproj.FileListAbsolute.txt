@@ -123,3 +123,5 @@ C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\re
 C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\Проект.LessonCardForm.resources
 C:\Users\ARDOR GAMING Neo\source\repos\Project\Проект\obj\Debug\net8.0-windows\Проект.LessonCardForm.resources
 C:\Users\user\Desktop\НС\Project-main\Проект\obj\Debug\net8.0-windows\Проект.Summary_page.resources
+C:\Users\ARDOR GAMING Neo\source\repos\Project\Проект\obj\Debug\net8.0-windows\Проект.Summary_page.resources
+C:\Users\ARDOR GAMING Neo\source\repos\Project\Проект\obj\Debug\net8.0-windows\Проект.GuideForm.resources

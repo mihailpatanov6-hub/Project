@@ -4,6 +4,9 @@
     <Compile Update="Class\ToggleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="GuideForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LessonCardForm.cs">
       <SubType>Form</SubType>
     </Compile>

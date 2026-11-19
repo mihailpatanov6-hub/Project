@@ -42,7 +42,7 @@ namespace Проект
         private void HoverCard(Panel card, bool hover)
         {
             card.BackColor = hover
-                ? Color.FromArgb(237, 228, 255) 
+                ? Color.FromArgb(237, 228, 255)
                 : Color.White;
         }
 
@@ -75,5 +75,11 @@ namespace Проект
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
+
+        private void руководствоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using var form = new GuideForm();
+            form.ShowDialog();
+        }
     }
-}
+    }
